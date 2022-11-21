@@ -70,7 +70,6 @@ const http = async (url, data = {}, option = {}) => {
 const request = {
 	setBaseUrl:(_baseURL)=>{
 		baseURL=_baseURL
-		console.log("baseurl",baseURL)
 	},
 	getBaseUrl:()=>{
 		return baseURL

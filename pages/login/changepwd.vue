@@ -24,9 +24,9 @@
 					height:this.$vcache.vget('safeHeight')
 				},
 				list: [
-					{palceholder:"请输入手机号",labelkey:"mphone", validata:"telphone", errormsg:"请输入正确的手机号", inputtype:"text", value:"18221204475",sendmsgbtn:false},
-					{palceholder:"请输入验证码",labelkey:"code",validata:"notEmpty",errormsg:"验证码不能为空",inputtype:"text", value:"561933",sendmsgbtn:true},
-					{palceholder:"请输入密码",labelkey:"pwd",validata:"notEmpty",errormsg:"密码码不能为空",inputtype:"text", value:"123456",sendmsgbtn:false}
+					{palceholder:"请输入手机号",labelkey:"mphone", validata:"telphone", errormsg:"请输入正确的手机号", inputtype:"text", value:"",sendmsgbtn:false},
+					{palceholder:"请输入验证码",labelkey:"code",validata:"notEmpty",errormsg:"验证码不能为空",inputtype:"text", value:"",sendmsgbtn:true},
+					{palceholder:"请输入密码",labelkey:"pwd",validata:"notEmpty",errormsg:"密码码不能为空",inputtype:"text", value:"",sendmsgbtn:false}
 				]
 			}
 		},		

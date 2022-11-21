@@ -1,18 +1,14 @@
 {
-  "id": "uni-tabbar",
-  "name": "底部选项卡模板",
-  "displayName": "底部选项卡模板",
+  "id": "xunbaoji.1.0.0",
+  "name": "寻宝记",
+  "displayName": "寻宝记",
   "version": "0.0.9",
-  "description": "中间带+号的底部选项卡",
-  "keywords": [
-    "tabbar",
-    "uni-tabbar",
-    "选项卡"
-],
+  "description": "寻宝记",
+  "keywords": ["寻宝记"],
 	"dcloudext": {
 	      "category": [
-	          "前端页面模板",
-	          "uni-app前端项目模板"
+	          "寻宝记",
+	          "寻宝记"
 	    ],
 	    "sale": {
 	        "regular": {

@@ -27,7 +27,7 @@
 			</view>
 		</view>
 		<view class="txt-content">
-			<view class="colorwhite font15 txt-self">晶块与KOB兑换比例为1:{{pageInfo.changerate}}(每天0:00更新)</view>
+			<view class="colorwhite font15 txt-self">晶块与KOB兑换比例为1:{{pageInfo.changerate}}</view>
 		</view>
 		
 		<view class="btn-box" @click="()=>changebtn()">

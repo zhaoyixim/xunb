@@ -44,8 +44,8 @@
 					height:this.$vcache.vget('safeHeight')
 				},
 				formData:{
-					mphone:"18221204475",
-					pwd:"123456"
+					mphone:"",
+					pwd:""
 				}
 			}
 		},

@@ -4,6 +4,7 @@
 		{
 			"path": "pages/index/index",
 			"style": {
+				"navigationBarTitleText": "寻宝记",
 				"app-plus": {
 					"titleNView":false
 				}
@@ -12,6 +13,7 @@
 		{
 			"path": "pages/login/index",
 			"style": {
+				"navigationBarTitleText": "登陆",
 				"app-plus": {
 					"titleNView":false
 				}
@@ -69,6 +71,7 @@
 		{
 			"path": "pages/home/index",
 			"style": {
+				"navigationBarTitleText": "寻宝记",
 				"app-plus": {
 					"titleNView":false
 				}

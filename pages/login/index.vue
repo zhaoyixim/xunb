@@ -126,7 +126,7 @@
 		background-size: 100% 100%;
 		padding: 20px;
 	}
-	.input-txt{font-size: 16px !important;
+	.input-txt{font-size: 20px !important;
 		height: 30px;
 		margin-top: 12px; padding: 5px 10px;
 		border-bottom: 1px #fff solid;

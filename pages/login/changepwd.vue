@@ -92,6 +92,11 @@
 					}
 				})
 				if(!validatepass) return ;
+				let gettokenfundata = await this.$commonFunc.setToken(this.$adpid,this.$secrect,sendata.mphone)
+				if(!gettokenfundata){
+					uni.showToast({title:"获取token失败",icon:"error"})
+					return ;
+				} 
 				let url = '/login/setPwd'
 				let res = await this.$request.post(url,sendata)
 				if(res.code == 0){

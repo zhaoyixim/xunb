@@ -1,0 +1,461 @@
+{
+	"pages": [
+		// pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/index/index",
+			"style": {
+				"app-plus": {
+					"titleNView":false
+				}
+			}
+		},
+		{
+			"path": "pages/login/index",
+			"style": {
+				"app-plus": {
+					"titleNView":false
+				}
+			}
+		},
+		{
+			"path": "pages/login/changepwd",
+			"style": {
+				"navigationBarTitleText": "忘记密码",
+				"app-plus": {
+					"bounce": "vertical",
+					"titleNView":{
+						"backgroundColor":"#353535",
+						"titleText":"忘记密码",
+						"titleSize":"18px",
+						"titleColor":"#FFF",
+						"autoBackButton":true
+					}
+				}
+			}
+		},
+		{
+			"path": "pages/login/reg",
+			"style": {
+				"navigationBarTitleText": "注册",
+				"app-plus": {
+					"bounce": "vertical",
+					"titleNView":{
+						"backgroundColor":"#353535",
+						"titleText":"注册",
+						"titleSize":"18px",
+						"titleColor":"#FFF",
+						"autoBackButton":true
+					}
+				}
+			}
+		},
+		
+		{
+			"path": "pages/index/newuser",
+			"style": {
+				"navigationBarTitleText": "新手指导",
+				"app-plus": {
+					"bounce": "vertical",
+					"titleNView":{
+						"backgroundColor":"#353535",
+						"titleText":"新手指导",
+						"titleSize":"18px",
+						"titleColor":"#FFF",
+						"autoBackButton":true
+					}
+				}
+			}
+		},
+		{
+			"path": "pages/home/index",
+			"style": {
+				"app-plus": {
+					"titleNView":false
+				}
+			}
+		},	
+		{
+			"path": "pages/home/invites",
+			"style": {
+				"navigationBarTitleText": "我的邀请函",
+				"app-plus": {
+					"bounce": "vertical",
+					"titleNView":{
+						"backgroundColor":"#353535",
+						"titleText":"我的邀请函",
+						"titleColor":"#FFF",
+						"titleSize":"18px",
+						"autoBackButton":true
+					}
+				}
+			}
+		},	
+		{
+			"path": "pages/home/aboutus",
+			"style": {
+				"navigationBarTitleText": "关于我们",
+				"app-plus": {
+					"bounce": "vertical",
+					"titleNView":{
+						"backgroundColor":"#353535",
+						"titleText":"关于我们",
+						"titleColor":"#FFF",
+						"titleSize":"18px",
+						"autoBackButton":true
+					}
+				}
+			}
+		},
+		{
+			"path": "pages/home/joinus",
+			"style": {
+				"navigationBarTitleText": "加入社群",
+				"app-plus": {
+					"bounce": "vertical",
+					"titleNView":{
+						"backgroundColor":"#353535",
+						"titleText":"加入社区",
+						"titleColor":"#FFF",
+						"titleSize":"18px",
+						"autoBackButton":true
+					}
+				}
+			}
+		},
+		{
+			"path": "pages/home/helpcenter",
+			"style": {
+				"navigationBarTitleText": "帮助中心",
+				"app-plus": {
+					"bounce": "vertical",
+					"titleNView":{
+						"backgroundColor":"#353535",
+						"titleText":"帮助中心",
+						"titleColor":"#FFF",
+						"titleSize":"18px",
+						"autoBackButton":true
+					}
+				}
+			}
+		},
+		{
+			"path": "pages/home/sysmsg",
+			"style": {
+				"navigationBarTitleText": "系统公告",
+				"app-plus": {
+					"bounce": "vertical",
+					"titleNView":{
+						"backgroundColor":"#353535",
+						"titleText":"关于晶块转出的规则",
+						"titleColor":"#FFF",
+						"titleSize":"18px",
+						"autoBackButton":true
+					}
+				}
+			}
+		},
+		{
+			"path": "pages/home/accountmanage",
+			"style": {
+				"navigationBarTitleText": "账户管理",
+				"app-plus": {
+					"bounce": "vertical",
+					"titleNView":{
+						"backgroundColor":"#353535",
+						"titleText":"账户管理",
+						"titleColor":"#FFF",
+						"titleSize":"18px",
+						"autoBackButton":true
+					}
+				}
+			}
+		},
+		{
+			"path": "pages/home/joinmercal",
+			"style": {
+				"navigationBarTitleText": "加盟商",
+				"app-plus": {
+					"bounce": "vertical",
+					"titleNView":{
+						"backgroundColor":"#353535",
+						"titleText":"加盟商",
+						"titleColor":"#FFF",
+						"titleSize":"18px",
+						"autoBackButton":true
+					}
+				}
+			}
+		},
+		{
+			"path": "pages/home/accouts/changeavatar",
+			"style": {
+				"navigationBarTitleText": "账户管理",
+				"app-plus": {
+					"bounce": "vertical",
+					"titleNView":{
+						"backgroundColor":"#353535",
+						"titleText":"账户管理",
+						"titleSize":"18px",
+						"titleColor":"#FFF",
+						"autoBackButton":true
+					}
+				}
+			}
+		},
+		{
+			"path": "pages/home/accouts/changename",
+			"style": {
+				"navigationBarTitleText": "账户管理",
+				"app-plus": {
+					"bounce": "vertical",
+					"titleNView":{
+						"backgroundColor":"#353535",
+						"titleText":"修改用户名",
+						"titleSize":"18px",
+						"titleColor":"#FFF",
+						"autoBackButton":true
+					}
+				}
+			}
+		},
+		{
+			"path": "pages/home/taps/chargestones",
+			"style": {
+				"navigationBarTitleText": "晶块兑换",
+				"app-plus": {
+					"bounce": "vertical",
+					"titleNView":{
+						"backgroundColor":"#353535",
+						"titleText":"晶块兑换",
+						"titleSize":"18px",
+						"titleColor":"#FFF",
+						"autoBackButton":true,
+						"buttons": [{
+							"text": "记录",
+							"fontSize": "16px",
+							"fontWeight": "bold",
+							"color": "#54a9f7"
+						}]
+					}
+				}
+			}
+		},
+		{
+			"path": "pages/home/taps/changebills",
+			"style": {
+				"navigationBarTitleText": "兑换记录",
+				"app-plus": {
+					"bounce": "vertical",
+					"titleNView":{
+						"backgroundColor":"#353535",
+						"titleText":"兑换记录",
+						"titleColor":"#FFF",
+						"titleSize":"18px"
+					}
+				}
+			}
+		},
+		{
+			"path": "pages/home/taps/stonesinput",
+			"style": {
+				"navigationBarTitleText": "充币",
+				"app-plus": {
+					"bounce": "vertical",
+					"titleNView":{
+						"backgroundColor":"#353535",
+						"titleText":"充币",
+						"titleColor":"#FFF",
+						"titleSize":"18px",
+						"autoBackButton":true,
+						"buttons": [{
+							"text": "记录",
+							"fontSize": "16px",
+							"fontWeight": "bold",
+							"color": "#54a9f7"
+						}]
+					}
+				}
+			}
+		},
+		
+		{
+			"path": "pages/home/taps/stonesoutput",
+			"style": {
+				"navigationBarTitleText": "提币",
+				"app-plus": {
+					"bounce": "vertical",
+					"titleNView":{
+						"backgroundColor":"#353535",
+						"titleText":"提币",
+						"titleColor":"#FFF",
+						"titleSize":"18px",
+						"autoBackButton":true,
+						"buttons": [{
+							"text": "记录",
+							"fontSize": "16px",
+							"fontWeight": "bold",
+							"color": "#54a9f7"
+						}]
+					}
+				}
+			}
+		},
+		
+		{
+			"path": "pages/home/taps/outputbills",
+			"style": {
+				"navigationBarTitleText": "提币记录",
+				"app-plus": {
+					"bounce": "vertical",
+					"titleNView":{
+						"backgroundColor":"#353535",
+						"titleText":"提币记录",
+						"titleColor":"#FFF",
+						"titleSize":"18px"
+					}
+				}
+			}
+		},
+		{
+			"path": "pages/home/taps/inputbills",
+			"style": {
+				"navigationBarTitleText": "充币记录",
+				"app-plus": {
+					"bounce": "vertical",
+					"titleNView":{
+						"backgroundColor":"#353535",
+						"titleText":"充币记录",
+						"titleColor":"#FFF",
+						"titleSize":"18px"
+					}
+				}
+			}
+		},
+		
+		
+		{
+			"path": "pages/home/taps/teams",
+			"style": {
+				"navigationBarTitleText": "水晶转出",
+				"app-plus": {
+					"bounce": "vertical",
+					"titleNView":{
+						"backgroundColor":"#353535",
+						"titleText":"我的团队",
+						"titleColor":"#FFF",
+						"titleSize":"18px",
+						"autoBackButton":true
+					}
+				}
+			}
+		},
+		{
+			"path": "pages/home/taps/bills",
+			"style": {
+				"navigationBarTitleText": "我的账单",
+				"app-plus": {
+					"bounce": "vertical",
+					"titleNView":{
+						"backgroundColor":"#353535",
+						"titleText":"账单记录",
+						"titleSize":"18px",
+						"titleColor":"#FFF",
+						"autoBackButton":true
+					}
+				}
+			}
+		},
+		{
+			"path": "pages/charge/index",
+			"style": {
+				"navigationBarTitleText": "商品兑换",
+				"app-plus": {
+					"bounce": "vertical",
+					"titleNView":{
+						"backgroundColor":"#353535",
+						"titleText":"商品兑换",
+						"titleColor":"#FFF",
+						"titleSize":"18px",
+						"autoBackButton":true,
+						"buttons": [{
+							"text": "\ue563",
+							"fontSrc": "/static/uni.ttf",
+							"fontSize": "28px",
+							"float": "right",
+							"color": "#FFFFFF",
+							"onclick": "tapRightBtn"
+						}]
+					}
+				}
+			}
+		},
+		{
+			"path": "pages/charge/bills",
+			"style": {
+				"navigationBarTitleText": "购买记录",
+				"app-plus": {
+					"bounce": "vertical",
+					"titleNView":{
+						"backgroundColor":"#353535",
+						"titleText":"购买记录",
+						"titleSize":"18px",
+						"titleColor":"#FFF",
+						"autoBackButton":true
+					}
+				}
+			}
+		}
+],
+	"globalStyle": {
+		"pageOrientation": "portrait",
+		"navigationBarTitleText": "xunbaoji",
+		"navigationBarTextStyle": "white",
+		"navigationBarBackgroundColor": "#007AFF",
+		"backgroundColor": "#F8F8F8",
+		"backgroundColorTop": "#F4F5F6",
+		"backgroundColorBottom": "#F4F5F6",
+		"mp-360": {
+			"navigationStyle": "custom"
+		},
+		"h5": {
+			"maxWidth": 1190,
+			"navigationBarTextStyle": "black",
+			"navigationBarBackgroundColor": "#F1F1F1"
+		}
+
+	},
+	"tabBar": {
+		"color": "#929292",
+		"selectedColor": "#007aff",
+		"borderStyle": "black",
+		"backgroundColor": "#353535",
+		"list": [{
+				"pagePath": "pages/index/index",
+				"iconPath": "static/images/iconindex.png",
+				"selectedIconPath": "static/images/iconindexchecked.png",
+				"text": "首页"
+			},
+			{
+				"pagePath": "pages/charge/index",
+				"iconPath": "static/images/iconmiddle.png",
+				"selectedIconPath": "static/images/iconmiddlechecked.png",
+				"text": "兑换"
+			}, {
+				"pagePath": "pages/home/index",
+				"iconPath": "static/images/iconlast.png",
+				"selectedIconPath": "static/images/iconlastchecked.png",
+				"text": "我的"
+			}
+		]
+	},
+	"condition" : { //模式配置，仅开发期间生效
+		"current": 0, //当前激活的模式(list 的索引项)
+		"list": [
+			{
+				"name": "", //模式名称
+				"path": "", //启动页面，必选
+				"query": "" //启动参数，在页面的onLoad函数里面得到
+			}
+		]
+	}
+}

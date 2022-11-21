@@ -1,0 +1,22 @@
+.wrap-box{
+		//min-height: 92.5vh;		
+		//background-image: url(@/static/images/bg_more.png) !important;
+		background-repeat: no-repeat;
+		background-size: 100% 100%;
+		
+		.list-wrap{
+			margin: 5px 0;
+			.list-item-wrap{
+				display: flex; flex-direction: row; padding:15px; border-radius:5px;
+				margin-bottom: 5px;
+				.item-left{flex:1;
+				.ctime-wrap{margin-top: 10px;}
+				}
+				.item-right{
+					width: 80px; text-align:center;
+					
+				}
+			}
+		}
+		
+	}

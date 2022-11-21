@@ -132,7 +132,7 @@
 		border-bottom: 1px #fff solid;
 	}
 	.input-placeholder{		  
-		    padding-left: 15px;
+		    padding-left: 2px;
 	}
 	.login-box{margin-bottom: 10px; 
 	background-color: transparent;

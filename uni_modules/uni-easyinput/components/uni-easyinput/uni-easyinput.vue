@@ -253,7 +253,7 @@
 				const borderColor = this.inputBorder && this.msg ? '#dd524d' : focusColor
 				return obj2strStyle({
 					'border-color': borderColor || '#e5e5e5',
-					'background-color': this.disabled ? this.styles.disableColor : '#fff'
+					//'background-color': this.disabled ? this.styles.disableColor : '#fff'
 				})
 			},
 			// input右侧样式

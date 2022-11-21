@@ -30,5 +30,5 @@
 	 uni-swiper .uni-swiper-dots-horizontal{
 		bottom: 50px !important;
 	 }
-	
+	.uni-easyinput__content-input{font-size: 20px !important;}
 </style>

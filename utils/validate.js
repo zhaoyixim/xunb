@@ -4,7 +4,7 @@ const validata = {
 		else return true
 	},
 	telphone:(_val)=>{
-		let reg = /^1[0-9]{10,10}$/;
+		let reg = /^1[3456789]d{9}$/;
 		return reg.test(_val)
 	}
 }

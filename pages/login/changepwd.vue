@@ -3,9 +3,28 @@
 	:style='{"minHeight": `${pageInfo.height+10}px`, "background-image":"url(" + require("@/static/images/bg_reg.png") + ")"}'
 	>	<view class="reg-input-box colorwhite"> 
 			<view v-for="(item,index) in list" :key="index" class="input-box">
-				<input v-if="!item.sendmsgbtn"  :value="item.value"  class="input-item" :placeholder="item.palceholder"  />
+				<uni-easyinput  v-if="!item.sendmsgbtn" 
+				v-model="item.value"
+				:type="item.inputtype" 
+				:inputBorder="false"
+				:styles="styles"
+				:placeholderStyle="placeholderStyle"
+				autoHeight
+				class="input-item" 
+				:placeholder="item.palceholder" ></uni-easyinput>
 				<view v-else class="msg-box-wrap">
-					<input class="input-item item-sendmsg" :value="item.value"  :placeholder="item.palceholder" />
+					<view class="input-item item-sendmsg" >
+						<uni-easyinput
+						:type="item.inputtype"
+						v-model="item.value" 
+						:inputBorder="false"
+						:styles="styles"
+						:placeholderStyle="placeholderStyle"
+						autoHeight
+						:placeholder="item.palceholder"
+						class="input-item" 
+						></uni-easyinput>
+					</view>
 					<view class="getmsg-box" @click="()=>getmsgcode()" >获取验证码</view>
 				</view>
 			</view>
@@ -23,8 +42,13 @@
 				pageInfo:{
 					height:this.$vcache.vget('safeHeight')
 				},
+				placeholderStyle: "font-size:16px",
+				styles: {
+					color: '#fff',
+					fontSize:'18px'
+				},
 				list: [
-					{palceholder:"请输入手机号",labelkey:"mphone", validata:"telphone", errormsg:"请输入正确的手机号", inputtype:"text", value:"",sendmsgbtn:false},
+					{palceholder:"请输入手机号",labelkey:"mphone", validata:"telphone", errormsg:"手机号格式错误", inputtype:"text", value:"",sendmsgbtn:false},
 					{palceholder:"请输入验证码",labelkey:"code",validata:"notEmpty",errormsg:"验证码不能为空",inputtype:"text", value:"",sendmsgbtn:true},
 					{palceholder:"请输入密码",labelkey:"pwd",validata:"notEmpty",errormsg:"密码码不能为空",inputtype:"text", value:"",sendmsgbtn:false}
 				]
@@ -39,7 +63,7 @@
 				let findItem = this._getkey('mphone')
 				if(!validate[findItem.validata](findItem.value)){
 					uni.showToast({
-						title:"请输入正确的手机号",
+						title:"手机号格式错误",
 						icon:"error"
 					})
 					return ;
@@ -109,7 +133,7 @@
 			margin-top: 10px;
 			.input-item{
 				height: 45px;
-				padding-left: 10px;
+				padding-left: 2px;
 			}
 			.msg-box-wrap{
 				display: flex; flex-direction: row;

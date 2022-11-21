@@ -55,7 +55,9 @@
 				<view class="fon28 color666">
 					<view class="title-box font24">
 						<view class="color333">加盟说明</view>
-						<view class="title-cancel-icon font30" @click="()=>handleclosewin()">x</view>
+						<view class="title-cancel-icon font30" @click="()=>handleclosewin()">
+						<uni-icons type="closeempty" color="#666" size="30"></uni-icons>
+						</view>
 					</view>
 					<view class="mes-box font16">
 						<view class="meg-box-title">加盟所需:{{joinneedusdt}}USDT</view>
@@ -74,11 +76,13 @@
 				<view class="fon28 color666">
 					<view class="title-box font24">
 						<view class="color333">激活说明</view>
-						<view class="title-cancel-icon font30" @click="()=>handleclosewin2()">x</view>
+						<view class="title-cancel-icon" @click="()=>handleclosewin2()">
+						<uni-icons type="closeempty" color="#666" size="30"></uni-icons>
+						</view>
 					</view>
 					<view class="mes-box font16">
-						<view class="meg-box-title">激活所需:{{boxactiveneedusdt}}USDT</view>
-						<view>了解详情 请联系在线客服</view>
+						<view class="meg-box-title">宝箱等级:{{boxlevel}}</view>
+						<view>激活宝箱所需:{{boxactiveneedusdt}}USDT</view>
 					</view>
 					<view class="msg-btn-box font24 colorwhite">
 						<view class="btn-box2" @click="()=>handleactive()">确认激活</view>
@@ -101,6 +105,7 @@
 				boxactiveneedusdt:0,
 				boxclicklistindex:0,
 				boxitemindex:0,
+				boxlevel:0,
 				pageInfo:{
 					height:this.$vcache.vget('safeHeight')
 				},
@@ -310,6 +315,7 @@
 			   }
 				if(!item.allowed){
 					this.boxactiveneedusdt = item.usdt
+					this.boxlevel = item.bnm
 					this.popupboxshow = true
 					this.$refs.popupbox.open()
 					this.boxclicklistindex = listIndex

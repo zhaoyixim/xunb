@@ -65,6 +65,7 @@
 			getmsgcode(){
 				let url = "/reg/getCode"
 				let findItem = this._getkey('mphone')
+				console.log("phone",findItem.validata)
 				if(!validate[findItem.validata](findItem.value)){
 					uni.showToast({
 						title:findItem.errormsg,
@@ -77,8 +78,8 @@
 				}
 				this.$request.post(url,senddata).then(res=>{
 					if(res.code == 0)
-						that._showerrortoast("发送成功")
-					else that._showerrortoast(res.msg)
+						this._showerrortoast("发送成功")
+					else this._showerrortoast(res.msg)
 				})
 			},
 			async regbtn(){

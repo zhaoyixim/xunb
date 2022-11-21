@@ -74,8 +74,8 @@
 				let that = this
 				this.$request.post(url,senddata).then(res=>{
 						if(res.code == 0)
-							that._showerrortoast("发送成功")
-						else that._showerrortoast(res.msg)
+							this._showerrortoast("发送成功")
+						else this._showerrortoast(res.msg)
 				})
 			},
 			async resetbtn(){

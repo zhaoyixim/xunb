@@ -1,6 +1,6 @@
 <template>
 	<view class=" loginBg"
-	:style='{"minHeight": `${pageInfo.height+6}px`, "background-image":"url(" + require("@/static/images/bg_reg.png") + ")"}'
+	:style='{"minHeight": `${pageInfo.height+10}px`, "background-image":"url(" + require("@/static/images/bg_reg.png") + ")"}'
 	>
 	
 		<view class="reg-input-box colorwhite"> 

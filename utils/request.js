@@ -1,6 +1,8 @@
 import vcache from '@/utils/vcache.js'
 let baseURL='http://api.xunbaoji888.com';
+let dev = false
 if(process.env.NODE_ENV === 'development'){ 
+	dev = true
 	//baseURL = 'http://dev.api.xunbao.com'
 }
 /*图片使用，没有修改过的*/
@@ -84,12 +86,18 @@ const request = {
 		return header
 	},
 	get:(_url,_data)=>{
-		//request.setBaseUrl("/api")
+		// #ifdef H5
+		if(!dev)
+			request.setBaseUrl("/api")
+		// #endif
 		let _options = { method : 'GET' }
 		return http(_url,_data,_options)
 	},
 	post:(_url,_data)=>{
-		//request.setBaseUrl("/api")
+		// #ifdef H5
+		if(!dev)
+			request.setBaseUrl("/api")
+		// #endif
 		let _options = { method : 'POST' }
 		return http(_url,_data)
 	}

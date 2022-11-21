@@ -4,7 +4,7 @@
 	>
 		
 		<view class="charge-box">
-			<view v-for="(item,index) in goodslist" :key="item.id" class="box-wrap color333 bgwhite" @click="()=>handleclick(item)">
+			<view v-for="(item,index) in goodslist" :key="item.id" class="box-wrap color333 bgwhite" @click="()=>handleclickmodel(item)">
 				<view class="box-img">
 					<image  class="image-box" :src="item.gds_pic"></image>
 				</view>
@@ -17,12 +17,35 @@
 			</view>
 			
 		</view>
+		
+		<uni-popup :show="popupshow" ref="popupgoods" mask-background-color="transparent" >
+			<view class="popup-content-wrap bgwhite">
+				<view class="fon28 color666">
+					<view class="title-box font24">
+						<view class="color333">购买说明</view>
+						<view class="title-cancel-icon" @click="()=>handleclosewin()">
+							<uni-icons type="closeempty" color="#666" size="30"></uni-icons>
+						</view>
+					</view>
+					<view class="mes-box font16">
+						<view class="meg-box-title">确定要花费{{clickitems.kob}}KOB购买此商品?</view>
+						
+					</view>
+					<view class="msg-btn-box font24 colorwhite">
+						<view class="btn-box2" @click="()=>handleclick()">确定购买</view>
+					</view>
+				</view>
+			</view>
+		</uni-popup>
+		
 	</view>
 </template>
 <script>
 	export default {
 		data() {
 			return {
+				popupshow:false,
+				clickitems:{},
 				pageInfo:{
 					height:this.$vcache.vget('safeHeight')
 				},
@@ -40,12 +63,15 @@
 			this.pageinit()
 		},
 		methods: {
+			handleclosewin(){
+				this.popupshow = false
+				this.$refs.popupgoods.close()
+			},
 			async pageinit(){
 				let url = '/store/getGoods'
 				let rebackjson = await this.$request.post(url)
 				if(rebackjson.code == 0 ){
 					this.goodslist = rebackjson.data
-					//console.log("items",this.goodslist)
 				}else{
 					uni.showToast({
 						title:rebackjson.msg,
@@ -53,12 +79,20 @@
 					})
 				}
 			},
-			async handleclick(items){
+			handleclickmodel(items){
+				this.clickitems = items
+				this.popupshow = true
+				this.$refs.popupgoods.open()
+			},
+			async handleclick(){
 				let url = '/store/createBill'
+				let items = this.clickitems
 				let senddata = {
 					gdsId:items.id
 				}
-				let rebackjson = await this.$request.post(url)
+				console.log("items",items)
+				
+				let rebackjson = await this.$request.post(url,senddata)
 				if(rebackjson.code == 0){
 					uni.showToast({
 						title:"购买成功",

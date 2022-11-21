@@ -27,5 +27,8 @@
 <style>
 	
 	 .uni-page-head-ft{right: 20px;}
+	 uni-swiper .uni-swiper-dots-horizontal{
+		bottom: 50px !important;
+	 }
 	
 </style>

@@ -1,6 +1,6 @@
 <template>
 	<view class="loginBg colorwhite" 
-	:style='{"minHeight": `${pageInfo.height+6}px`, "background-image":"url(" + require("@/static/images/bg_login.png") + ")"}'
+	:style='{"minHeight": `${pageInfo.height+10}px`, "background-image":"url(" + require("@/static/images/bg_login.png") + ")"}'
 	>
 		<view class="">
 			<br /><br />
@@ -91,7 +91,7 @@
 					this.$vcache.vset("meminfo",loginback.data)
 					uni.showToast({title:"登陆成功...",icon:"success"})
 					setTimeout(function(){
-						uni.switchTab({
+						uni.reLaunch({
 							url: '/pages/index/index'
 						})	
 					},1000)

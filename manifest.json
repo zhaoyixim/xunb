@@ -41,13 +41,13 @@
             "splashscreen" : {
                 "androidStyle" : "default",
                 "android" : {
-                    "xhdpi" : "C:/Users/Administrator/Desktop/coder/ͼƬ-381-2.png"
+                    "xhdpi" : "pageinitimg/ͼƬ-381-2.png"
                 }
             },
             "icons" : {
                 "android" : {
-                    "xhdpi" : "C:/Users/Administrator/Desktop/coder/LOGO-96.png",
-                    "xxhdpi" : "C:/Users/Administrator/Desktop/coder/LOGO-144.png"
+                    "xhdpi" : "pageinitimg/LOGO-96.png",
+                    "xxhdpi" : "pageinitimg/LOGO-144.png"
                 }
             }
         }
@@ -61,5 +61,5 @@
         "usingComponents" : true
     },
     "vueVersion" : "2",
-    "fallbackLocale" : "zh-Hans"
+    "fallbackLocale" : "en"
 }

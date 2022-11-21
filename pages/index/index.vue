@@ -15,9 +15,9 @@
 					<uni-notice-bar color="#000" background-color="rgba(255,255,255,0.5)" single :text="noticetxt" />
 			</view>	
 		</view>
-		<scroll-view  class="zf-idx-container" 
+		<scroll-view class="zf-idx-container" 
 		:style='{  "background-image":"url(" + require("@/static/images/idx_bg.png") + ")"}'>			
-			<view class="">
+			<view class="viewcontroller">
 				<view class="mui-row-box colorwhite">
 					<view v-for="(itm,index) in taplist" :key="index" class="box-cell" @click="()=>clicktohref(itm,index)">
 						<view class="icon-title-box">
@@ -28,7 +28,7 @@
 				</view>
 				<!--宝箱区-->
 				<view class="box-area">
-					<uni-section type="line" padding>
+					<uni-section  type="line" padding>
 						<!-- 因为swiper特性的关系，请指定swiper的高度 ，swiper的高度并不会被内容撑开-->
 						<swiper class="swiper-box-wrap"
 						 :style='{ "minHeight":`${pageInfo.height-360}px`}'
@@ -124,7 +124,8 @@
 				interval: 2000,
 				meminfo:{},
 				duration: 500,
-				joinneedusdt:0
+				joinneedusdt:0,
+				scrollTop:0,
 			}
 		},		
 		async created() {
@@ -135,23 +136,20 @@
 				})
 				return ;
 			}
+			this.meminfo= meminfo
 			this.$commonFunc.tokenCheck()
-			this.pageinit()
-		},
-		onShow() {
-			
-			if(null ==this.boxList.length || undefined == this.boxList.length || 0 ==  this.boxList.length){
-			  this.pageinit()
-			}
+			await this.pageinit()
 		},
 		methods: {
 			async pageinit(){
-				this.meminfo = await this.$vcache.vget('meminfo')
+				//this.meminfo = await this.$vcache.vget('meminfo')
 				await this.getScrollImgs()
 				await this.getboxlist()
 				await this.getnoticetxt()
 				await this.getjoinusdt()	
+				
 			},
+			
 			async getjoinusdt(){
 				let getusdturl = '/union/getUnionUsdt'
 				let getusdtdata = await this.$request.post(getusdturl)
@@ -193,7 +191,7 @@
 				let itembox = []
 				let that = this
 				let box_level = this.meminfo.box_lev ?this.meminfo.box_lev:1
-				getboxlist.data.forEach((it,index)=>{
+				await getboxlist.data.forEach((it,index)=>{
 					if(it.checked) it.imgsrc = that.activeBoximgsrc
 					else it.imgsrc = "/static/images/box.png"
 					let boxIndex = parseInt(index/9)
@@ -355,38 +353,14 @@
 	.uni-modal{
 		border-radius:20px !important;
 	}
-	.popup-content-wrap{
-		width: 300px; 
-		padding: 10px;
-		border-radius: 20px;
-		.title-box{ 
-			text-align: center; position: relative; }
-		.title-cancel-icon{
-			position: absolute; right: 10px;margin-top: -15px;
-		}
-		.mes-box{
-			display: flex; justify-content: center; 
-			flex-direction: column;
-			align-items: center;
-			padding: 20px;
-			.meg-box-title{margin-bottom: 10px;}
-		}
-		.msg-btn-box{
-			display: flex; justify-content: center; align-items: center;
-			.btn-box2{
-				border-radius: 12px; padding:5px;text-align: center;
-				width: 90%;background-color: #3360f4;
-			}
-			
-		}
-	}
+	
 	.index-box{ 
 	 display: flex;
      flex-direction: column;
 	}
 	.top-box-wrap{
 		height: 207px;
-		position: relative
+		position: relative;
 	}
 	.uni-margin-wrap {
 		height: inherit;
@@ -400,7 +374,7 @@
 		text-align: center;
 	}
 	.bulletin{ 
-		position: absolute; bottom: 0; width: 100%;
+		position: absolute; bottom: 18px; width: 100%;
 		height: 20px; background-color: transparent; }
 	
 	.zf-idx-container{
@@ -412,15 +386,11 @@
 	.mui-row-box{display: flex; 
 	    flex-direction: row;
 		padding: 60px 16px 0 16px;
-		// #ifndef H5
-		margin-top: 5px;
-		// #endif
-		
 		.box-cell{width: 25%;			
 			text-align: center;
 			.icon-title-box{
 				// #ifndef H5
-				height: 180%; width:85%;
+				//height: 180%; width:85%;
 				// #endif
 				// #ifdef H5
 				height: 64px; width:60px;
@@ -428,21 +398,17 @@
 				margin: auto;
 			}
 			.taptxt{
-				// #ifndef H5
-				font-size: 20px;
-				// #endif
-				// #ifdef H5
 				font-size: 16px;
-				// #endif
 			}
 		}		
 	
 	}
 	.box-area{
-	 
+	  
 	}
 	.swiper-box-wrap {
 		position: relative; top: 35px;
+		height: 400px;
 		
 	}
 	.grid-item-box {

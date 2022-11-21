@@ -1,6 +1,6 @@
 <template>
 	<view class="jionmercal-box"
-	:style='{"minHeight": `${pageInfo.height+6}px`, "background-image":"url(" + require("@/static/images/bg_more.png") + ")"}'>
+	:style='{"minHeight": `${pageInfo.height+10}px`, "background-image":"url(" + require("@/static/images/bg_more.png") + ")"}'>
 	
 		
 		<view class="top-box-wrap colorwhite ">

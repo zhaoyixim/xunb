@@ -81,7 +81,7 @@
 				dots: {
 					width: 6,
 					height: 6,
-					bottom: 14,
+					bottom: 10,
 					color: '#fff',
 					backgroundColor: 'rgba(0, 0, 0, .3)',
 					border: '1px rgba(0, 0, 0, .3) solid',

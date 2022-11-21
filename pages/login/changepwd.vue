@@ -1,6 +1,6 @@
 <template>
 	<view class=" loginBg"
-	:style='{"minHeight": `${pageInfo.height+6}px`, "background-image":"url(" + require("@/static/images/bg_reg.png") + ")"}'
+	:style='{"minHeight": `${pageInfo.height+10}px`, "background-image":"url(" + require("@/static/images/bg_reg.png") + ")"}'
 	>	<view class="reg-input-box colorwhite"> 
 			<view v-for="(item,index) in list" :key="index" class="input-box">
 				<input v-if="!item.sendmsgbtn"  :value="item.value"  class="input-item" :placeholder="item.palceholder"  />

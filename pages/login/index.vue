@@ -26,7 +26,7 @@
 		</view>
 		<view class="footer-tips font14">
 			<view class="tipsbox">
-				登录即表明同意<text class="colorred">(用户协议)</text> 和 <text class="colorred"> (隐私政策)</text>
+				登录即表明同意<text class="colorred" @click="()=>userneedkonw()">(用户协议)</text> 和 <text @click="()=>topolicity()" class="colorred"> (隐私政策)</text>
 			</view>
 		</view>		
 	</view>
@@ -58,6 +58,16 @@
 			}
 		},
 		methods: {
+			userneedkonw(){
+				uni.navigateTo({
+					url:"./usermustknow"
+				})
+			},
+			topolicity(){
+				uni.navigateTo({
+					url:"./politics"
+				})
+			},
 			async submitBtn(){
 				let sendData = this.formData
 				let that = this

@@ -36,6 +36,38 @@
 			}
 		},
 		{
+			"path": "pages/login/politics",
+			"style": {
+				"navigationBarTitleText": "寻宝记",
+				"app-plus": {
+					"bounce": "vertical",
+					"titleNView":{
+						"backgroundColor":"#353535",
+						"titleText":"寻宝记",
+						"titleSize":"18px",
+						"titleColor":"#FFF",
+						"autoBackButton":true
+					}
+				}
+			}
+		},
+		{
+			"path": "pages/login/usermustknow",
+			"style": {
+				"navigationBarTitleText": "寻宝记",
+				"app-plus": {
+					"bounce": "vertical",
+					"titleNView":{
+						"backgroundColor":"#353535",
+						"titleText":"寻宝记",
+						"titleSize":"18px",
+						"titleColor":"#FFF",
+						"autoBackButton":true
+					}
+				}
+			}
+		},
+		{
 			"path": "pages/login/reg",
 			"style": {
 				"navigationBarTitleText": "寻宝记",

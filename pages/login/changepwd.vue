@@ -27,7 +27,10 @@
 						class="input-item" 
 						></uni-easyinput>
 					</view>
-					<view class="getmsg-box" @click="()=>getmsgcode()" >获取验证码</view>
+					
+					<view v-if="!showtimer" class="getmsg-box" @click="()=>getmsgcode()">获取验证码</view>
+					<view v-else class="getmsg-box">倒计时{{timer}}s</view>
+					
 				</view>
 			</view>
 			<view class="sub-btn-box">
@@ -61,7 +64,7 @@
 		},	
 		watch:{
 			timer:function(b,af){
-				console.log("before:",b,"after:",af)
+				//console.log("before:",b,"after:",af)
 				if(af<=0) {
 					this.showtimer = false
 					this.timer = 59
@@ -89,11 +92,10 @@
 				let that = this
 				
 				let msgback = await this.$request.post(url,senddata)
-							
+				
 				if(msgback.code == 0){
 					this._showerrortoast("发送成功",true)
 					this.showtimer = true
-					let that = this
 					this.timerhandle = setInterval(function(){
 						 that.timer --
 					},1000)

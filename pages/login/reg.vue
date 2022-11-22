@@ -56,7 +56,7 @@
 					{palceholder:"请输入手机号",labelkey:"mphone", validata:"telphone", errormsg:"手机号格式错误", inputtype:"number", value:"",sendmsgbtn:false},
 					{palceholder:"请输入验证码",labelkey:"code",validata:"notEmpty",errormsg:"验证码不能为空",inputtype:"number", value:"",sendmsgbtn:true},
 					{palceholder:"请输入密码",labelkey:"pwd",validata:"notEmpty",errormsg:"密码码不能为空",inputtype:"text", value:"",sendmsgbtn:false},
-					{palceholder:"请输入邀请吗",labelkey:"invite",validata:"notEmpty",errormsg:"邀请码不能为空",inputtype:"number", value:"",sendmsgbtn:false}
+					{palceholder:"请输入邀请码（必填）",labelkey:"invite",validata:"notEmpty",errormsg:"邀请码不能为空",inputtype:"number", value:"",sendmsgbtn:false}
 					
 				],
 				showtimer:false,
@@ -66,7 +66,7 @@
 		},
 		watch:{
 			timer:function(b,af){
-				console.log("before:",b,"after:",af)
+				//console.log("before:",b,"after:",af)
 				if(af<=0) {
 					this.showtimer = false
 					this.timer = 59

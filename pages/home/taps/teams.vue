@@ -113,7 +113,7 @@
 		methods: {
 			invitenow(){
 				uni.navigateTo({
-					url: './invites'
+					url: './../invites'
 				})
 			},
 			async pageinit(){

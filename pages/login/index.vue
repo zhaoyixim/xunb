@@ -24,7 +24,7 @@
 				</view>
 			</view>					
 		</view>
-		<view class="zf-txt-pos zf-txt-color-white footer-tips font14">
+		<view class="footer-tips font14">
 			<view class="tipsbox">
 				登录即表明同意<text class="colorred">(用户协议)</text> 和 <text class="colorred"> (隐私政策)</text>
 			</view>
@@ -146,7 +146,7 @@
 	}
 	.footer-tips{
 	width:100%; text-align: center;
-	padding-top: 10px;
+	padding-top: 60px;
 		.tipsbox{
 			display: inline; 
 			

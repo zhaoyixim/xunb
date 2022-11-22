@@ -90,7 +90,6 @@
 				let senddata = {
 					gdsId:items.id
 				}
-				console.log("items",items)
 				
 				let rebackjson = await this.$request.post(url,senddata)
 				if(rebackjson.code == 0){
@@ -102,7 +101,7 @@
 					setTimeout(function(){
 						/*兑换成功*/
 						that.updatenewuseinfo()
-					},1000)
+					},2000)
 				}else{
 					uni.showToast({
 						title:rebackjson.msg,

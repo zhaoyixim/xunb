@@ -13,7 +13,7 @@
 		{
 			"path": "pages/login/index",
 			"style": {
-				"navigationBarTitleText": "登陆",
+				"navigationBarTitleText": "寻宝记",
 				"app-plus": {
 					"titleNView":false
 				}
@@ -22,7 +22,7 @@
 		{
 			"path": "pages/login/changepwd",
 			"style": {
-				"navigationBarTitleText": "忘记密码",
+				"navigationBarTitleText": "寻宝记",
 				"app-plus": {
 					"bounce": "vertical",
 					"titleNView":{
@@ -38,7 +38,7 @@
 		{
 			"path": "pages/login/reg",
 			"style": {
-				"navigationBarTitleText": "注册",
+				"navigationBarTitleText": "寻宝记",
 				"app-plus": {
 					"bounce": "vertical",
 					"titleNView":{

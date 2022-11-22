@@ -7,6 +7,7 @@
 				v-model="item.value"
 				:type="item.inputtype" 
 				:inputBorder="false"
+				:clearable="false"
 				:styles="styles"
 				:placeholderStyle="placeholderStyle"
 				autoHeight
@@ -20,6 +21,7 @@
 						:inputBorder="false"
 						:styles="styles"
 						:placeholderStyle="placeholderStyle"
+						:clearable="false"
 						autoHeight
 						:placeholder="item.palceholder"
 						class="input-item" 
@@ -51,14 +53,27 @@
 					{palceholder:"请输入手机号",labelkey:"mphone", validata:"telphone", errormsg:"手机号格式错误", inputtype:"text", value:"",sendmsgbtn:false},
 					{palceholder:"请输入验证码",labelkey:"code",validata:"notEmpty",errormsg:"验证码不能为空",inputtype:"text", value:"",sendmsgbtn:true},
 					{palceholder:"请输入密码",labelkey:"pwd",validata:"notEmpty",errormsg:"密码码不能为空",inputtype:"text", value:"",sendmsgbtn:false}
-				]
+				],
+				showtimer:false,
+				timer:59,
+				timerhandle:0
 			}
-		},		
+		},	
+		watch:{
+			timer:function(b,af){
+				console.log("before:",b,"after:",af)
+				if(af<=0) {
+					this.showtimer = false
+					this.timer = 59
+					clearInterval(this.timerhandle)
+				}
+			}
+		},
 		created() {
 			
 		},
 		methods: {
-			getmsgcode(){
+			async getmsgcode(){
 				let url = "/login/getCode"
 				let findItem = this._getkey('mphone')
 				if(!validate[findItem.validata](findItem.value)){
@@ -72,11 +87,18 @@
 					mphone : findItem.value
 				}
 				let that = this
-				this.$request.post(url,senddata).then(res=>{
-						if(res.code == 0)
-							this._showerrortoast("发送成功")
-						else this._showerrortoast(res.msg)
-				})
+				
+				let msgback = await this.$request.post(url,senddata)
+							
+				if(msgback.code == 0){
+					this._showerrortoast("发送成功",true)
+					this.showtimer = true
+					let that = this
+					this.timerhandle = setInterval(function(){
+						 that.timer --
+					},1000)
+				}else this._showerrortoast(msgback.msg)	
+				
 			},
 			async resetbtn(){
 				let items = this.list
@@ -100,7 +122,7 @@
 				let url = '/login/setPwd'
 				let res = await this.$request.post(url,sendata)
 				if(res.code == 0){
-					this._showerrortoast("修改成功，请登陆")
+					this._showerrortoast("修改成功，请登陆",true)
 					setTimeout(function(){
 						uni.navigateTo({
 							url: './index'
@@ -115,10 +137,12 @@
 			_getkey(_key){
 				return this.list.find(it=>it.labelkey == _key)
 			},
-			_showerrortoast(_txt){
+			
+			_showerrortoast(_txt,sucessflag = false){
+				let iconflg = sucessflag?"success":"error"
 				uni.showToast({
 					title:_txt,
-					icon:"error"
+					icon:iconflg
 				})
 			}
 		}

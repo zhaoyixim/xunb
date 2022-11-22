@@ -27,7 +27,7 @@
 					"bounce": "vertical",
 					"titleNView":{
 						"backgroundColor":"#353535",
-						"titleText":"忘记密码",
+						"titleText":"寻宝记",
 						"titleSize":"18px",
 						"titleColor":"#FFF",
 						"autoBackButton":true
@@ -43,7 +43,7 @@
 					"bounce": "vertical",
 					"titleNView":{
 						"backgroundColor":"#353535",
-						"titleText":"注册",
+						"titleText":"寻宝记",
 						"titleSize":"18px",
 						"titleColor":"#FFF",
 						"autoBackButton":true

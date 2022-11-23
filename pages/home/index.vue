@@ -79,7 +79,9 @@
 					{labelId:4,labelName:"系统公告",tohref:"./sysmsg"},
 					{labelId:5,labelName:"流水明细",tohref:"./taps/bills"},
 					{labelId:6,labelName:"加盟商",tohref:"./joinmercal"},
-					{labelId:7,labelName:"账户管理",tohref:"./accountmanage"}				
+					{labelId:7,labelName:"账户管理",tohref:"./accountmanage"},
+					{labelId:8,labelName:"在线客服",tohref:"../index/chat"}	
+					
 				],
 				taplist:[
 					{ labelId:1,labelName:"晶块兑换",tohref:"./taps/chargestones", labelIcon:"/static/images/dh.png"},

@@ -135,7 +135,9 @@
 		},		
 		async created() {
 			let meminfo = await this.$vcache.vget('meminfo')
+			
 			if(!meminfo || null == meminfo.id || undefined ==meminfo.id ){
+				
 				uni.navigateTo({
 					url: '../login/index'
 				})
@@ -144,6 +146,11 @@
 			this.meminfo= meminfo
 			this.$commonFunc.tokenCheck()
 			await this.pageinit()
+		},
+		async mounted() {
+			if(!this.boxList || undefined == this.boxList.length){
+				await this.getboxlist()
+			}
 		},
 		methods: {
 			async pageinit(){

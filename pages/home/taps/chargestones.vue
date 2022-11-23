@@ -16,13 +16,16 @@
 			<view class="content-unit-box">
 				<view class="coloryellow">晶块数量</view>
 				<view class="input-unit-box">
-					<input class="styleinput colorwhite font20" auto-focus type="number" v-model="fillednum"  @focus="()=>focusinput()" placeholder="请输入数量"/>
+					<input class="styleinput colorwhite font20" auto-focus
+					 type="number"
+					 v-model="fillednum" @input="(e)=>changeKobNums(e)"  
+					 @focus="()=>focusinput()" placeholder="请输入数量"/>
 				</view>
 			</view>
 			<view class="content-unit-box">
 				<view class="coloryellow">KOB</view>
 				<view class="input-unit-box">
-					<input disabled  class="styleinputnoboder colorwhite font20" :value="pageInfo.kobnum" placeholder=""/>
+					<input disabled  class="styleinputnoboder colorwhite font20" v-model="kobnums" placeholder=""/>
 				</view>
 			</view>
 		</view>
@@ -44,6 +47,7 @@
 		data() {
 			return {
 				fillednum:"",
+				kobnums:0,
 				pageInfo:{
 					height:this.$vcache.vget('safeHeight'),
 					kobnum:0,
@@ -66,6 +70,18 @@
 			this.inipagedata()
 		},
 		methods: {
+			changeKobNums(e){
+				let beforekobnums = this.kobnums
+				if(this.fillednum - parseInt( this.pageInfo.crystalnum )>0){
+					uni.showToast({
+						title: '您的晶块数不够了',
+						icon: 'error'
+					})	
+					return ;
+				}
+				this.kobnums = this.fillednum*parseInt(this.pageInfo.changerate)
+				console.log("fillednum",this.fillednum)
+			},
 			async changebtn(){
 				if(this.pageInfo.crystalnum <=0){
 					uni.showToast({

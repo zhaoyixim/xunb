@@ -50,6 +50,10 @@
 					height:this.$vcache.vget('safeHeight')
 				},
 				labelIconPath:'/static/images/btnDh.png',
+				pageDiv:{
+					pageNo:1,
+					pageSize:10
+				},
 				goodslist: []
 			}
 		},
@@ -69,9 +73,10 @@
 			},
 			async pageinit(){
 				let url = '/store/getGoods'
-				let rebackjson = await this.$request.post(url)
+				let senddata = {...this.pageDiv}
+				let rebackjson = await this.$request.post(url,senddata)
 				if(rebackjson.code == 0 ){
-					this.goodslist = rebackjson.data
+					this.goodslist.push(rebackjson.data)
 				}else{
 					uni.showToast({
 						title:rebackjson.msg,

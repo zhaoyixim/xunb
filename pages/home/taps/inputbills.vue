@@ -59,7 +59,8 @@
 						}
 						savejson.push(unitjson)
 					})
-					this.dataList = savejson
+					this.dataList.push(savejson)
+					//this.dataList = savejson
 				}else{
 					uni.showToast({
 						title: rebackjson.msg,

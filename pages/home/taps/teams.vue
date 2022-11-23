@@ -104,11 +104,18 @@
 				listdata:[],
 				savezjie:[],
 				savejjie:[],
-				
+				pageDiv:{
+					pageNo:1,
+					pageSize:10
+				},
 			}
 		},
 		created() {
 		 this.pageinit()	
+		},
+		onReachBottom(){
+			this.pageDiv.pageNo ++
+			this.pageinit()
 		},
 		methods: {
 			invitenow(){
@@ -120,8 +127,9 @@
 				let meminfo = this.$vcache.vget('meminfo')
 				this.pageInfo.id = meminfo.id
 				let url = '/Team'
-				let rebjson = await this.$request.post(url)
-				console.log("",rebjson)
+				let senddata = {...this.pageDiv}
+				let rebjson = await this.$request.post(url,senddata)
+				//console.log("",rebjson)
 				if(rebjson.code == 0){
 					this.pageInfo.directperson = rebjson.data.ztCnt
 					this.pageInfo.redirectperson = rebjson.data.jtCnt

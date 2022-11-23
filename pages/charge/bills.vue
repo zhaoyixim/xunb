@@ -30,6 +30,10 @@
 			    pageInfo:{
 					height:this.$vcache.vget('safeHeight')
 				},
+				pageDiv:{
+					pageNo:1,
+					pageSize:10
+				},
 				dataList:[]
 			}
 		},
@@ -37,10 +41,15 @@
 			this.$commonFunc.tokenCheck()
 			this.getbills()
 		},
+		onReachBottom(){
+			this.pageDiv.pageNo ++
+			this.getbills()
+		},
 		methods: {
 			async getbills(){
 				let url = '/user/getGdsBill'
-				let rebackjson = await this.$request.post(url)
+				let senddata = {...this.pageDiv}
+				let rebackjson = await this.$request.post(url,senddata)
 				if(rebackjson.code == 0 ){
 					let savejson = rebackjson.data
 					let resultjson = []
@@ -56,7 +65,7 @@
 						}
 						resultjson.push(unitjson)
 					})
-					this.dataList = resultjson
+					this.dataList.push(resultjson)
 				}else{
 					uni.showToast({
 						title: rebackjson.msg,

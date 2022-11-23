@@ -77,7 +77,7 @@
 					mphone:meminfo.m_phone
 				}
 				let rebakjson = await this.$request.post(url,senddata)
-				this.msglist = rebakjson.data
+				this.msglist.push(rebakjson.data)
 				item.checked = true
 				this.listindex = itemindex
 				

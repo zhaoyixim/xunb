@@ -77,7 +77,7 @@
 					mphone:meminfo.m_phone
 				}
 				let rebakjson = await this.$request.post(url,senddata)
-				if(rebakjson.code == 0) this.msglist.push(rebakjson.data)
+				if(rebakjson.code == 0) this.msglist.push(...rebakjson.data)
 				 else uni.showToast({
 				 	title:rebakjson.msg
 				 })

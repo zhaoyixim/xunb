@@ -32,6 +32,10 @@ const  vcache = {
 	  vdelete:(key) => {
 		   uni.removeStorageSync(key)
 		   return true
+	  },
+	  vclear:()=>{
+		  uni.clearStorageSync();
+		  return true
 	  }
 }
 export default vcache

@@ -141,7 +141,7 @@
 							mlevel:"vip1",
 							box_lev:it.box_lev
 						}
-						this.savezjie.push(unijson)
+						this.savezjie.push(...unijson)
 					})
 					
 					rebjson.data.jtUser.forEach(it=>{
@@ -150,7 +150,7 @@
 							mlevel:"vip1",
 							box_lev:it.box_lev
 						}
-						this.savejjie.push(unijson)
+						this.savejjie.push(...unijson)
 					})
 					this.listdata = this.savezjie
 				}

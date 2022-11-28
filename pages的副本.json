@@ -272,8 +272,14 @@
 						"backgroundColor":"#353535",
 						"titleText":"晶块兑换",
 						"titleSize":"18px",
-						"titleColor":"#FFF"
-						
+						"titleColor":"#FFF",
+						"autoBackButton":true,
+						"buttons": [{
+							"text": "记录",
+							"fontSize": "16px",
+							"fontWeight": "bold",
+							"color": "#54a9f7"
+						}]
 					}
 				}
 			}
@@ -303,8 +309,14 @@
 						"backgroundColor":"#353535",
 						"titleText":"充币",
 						"titleColor":"#FFF",
-						"titleSize":"18px"
-						
+						"titleSize":"18px",
+						"autoBackButton":true,
+						"buttons": [{
+							"text": "记录",
+							"fontSize": "16px",
+							"fontWeight": "bold",
+							"color": "#54a9f7"
+						}]
 					}
 				}
 			}
@@ -320,8 +332,14 @@
 						"backgroundColor":"#353535",
 						"titleText":"提币",
 						"titleColor":"#FFF",
-						"titleSize":"18px"
-						
+						"titleSize":"18px",
+						"autoBackButton":true,
+						"buttons": [{
+							"text": "记录",
+							"fontSize": "16px",
+							"fontWeight": "bold",
+							"color": "#54a9f7"
+						}]
 					}
 				}
 			}

@@ -35,7 +35,7 @@
 					</view>
 				</view>
 			</view>
-			<view class="btn-box colorwhite font18">
+			<view class="btn-box colorwhite font18" @click="()=>handellogout()">
 				<view class="btn-wraps">
 					退出
 				</view>
@@ -66,6 +66,21 @@
 			this.avatarimg =this.getmeminfo.m_header
 		},
 		methods: {
+			handellogout(){
+				console.log("asdfadsf")
+				if(this.$vcache.vclear()){
+					uni.showToast({
+						title:"即将退出",
+						icon:"success"
+					})
+					setTimeout(function(){
+						uni.navigateTo({
+							url: '../login/index'
+						})
+					},2000)
+				}
+				
+			},
 			tochangeavatar(){
 				uni.navigateTo({
 					url: './accouts/changeavatar'

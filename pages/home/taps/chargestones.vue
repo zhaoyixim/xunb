@@ -17,7 +17,7 @@
 				<view class="coloryellow">晶块数量</view>
 				<view class="input-unit-box">
 					<input class="styleinput colorwhite font20" auto-focus
-					 type="number"
+					 type="number" min="1"
 					 v-model="fillednum" @input="(e)=>changeKobNums(e)"  
 					 @focus="()=>focusinput()" placeholder="请输入数量"/>
 				</view>
@@ -111,20 +111,27 @@
 					crystalCnt:this.fillednum
 				}
 				let resjson = await this.$request.post(url,senddata)
+				console.log("change",resjson)
 				if(resjson.code == 0){
 					uni.showToast({
-						title: '提交成功',
+						title: '兑换成功',
 						icon: 'success'
 					})
-					setTimeout(function(){},2000)
-					//重置数据
+					let that =this
 					
 					let memurl = "/user/info"
 					let sendPhone = {mphone:senddata.mphone}
-					let meminfo = await this.$request.post(memurl,sendPhone)
-					if(meminfo) 
-							await this.$vcache.vset("meminfo",meminfo.data)
-					this.inipagedata()	
+					setTimeout(function(){
+						that.$request.post(memurl,sendPhone).then(res=>{
+							if(res.code == 0 ) {
+								that.$vcache.vset("meminfo",res.data)
+								that.inipagedata()	
+							}
+						})
+					},2000)
+					//重置数据
+					
+					
 				}else{
 					uni.showToast({
 						title: resjson.msg,

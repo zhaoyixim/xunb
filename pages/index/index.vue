@@ -82,6 +82,7 @@
 					</view>
 					<view class="mes-box font16">
 						<view class="meg-box-title">宝箱等级:{{boxlevel}}</view>
+						<view class="meg-box-title">日产量:{{daygeneratenum}}晶块</view>
 						<view>激活宝箱所需:{{boxactiveneedusdt}}USDT</view>
 					</view>
 					<view class="msg-btn-box font24 colorwhite">
@@ -106,6 +107,7 @@
 				boxclicklistindex:0,
 				boxitemindex:0,
 				boxlevel:0,
+				daygeneratenum:0,
 				pageInfo:{
 					height:this.$vcache.vget('safeHeight')
 				},
@@ -279,6 +281,7 @@
 				}
 			},
 			async handleactive(){
+				
 				//确定激活宝箱
 				let listindex = this.boxclicklistindex
 				let itemindex = this.boxitemindex
@@ -323,6 +326,7 @@
 				if(!item.allowed){
 					this.boxactiveneedusdt = item.usdt
 					this.boxlevel = item.bnm
+					this.daygeneratenum = item.crystal
 					this.popupboxshow = true
 					this.$refs.popupbox.open()
 					this.boxclicklistindex = listIndex

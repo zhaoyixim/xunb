@@ -111,7 +111,7 @@
 				sendPhone = {...sendPhone,...this.pageDiv}
 				let activedata = await this.$request.post(url,sendPhone)
 				if(activedata.code == 0){
-					this.listdatastore.push(activedata.data)
+					this.listdatastore.push(...activedata.data)
 				}else{
 					uni.showToast({
 						title:activedata.msg,

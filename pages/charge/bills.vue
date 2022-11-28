@@ -65,7 +65,7 @@
 						}
 						resultjson.push(unitjson)
 					})
-					this.dataList.push(resultjson)
+					this.dataList.push(...resultjson)
 				}else{
 					uni.showToast({
 						title: rebackjson.msg,

@@ -76,7 +76,7 @@
 				let senddata = {...this.pageDiv}
 				let rebackjson = await this.$request.post(url,senddata)
 				if(rebackjson.code == 0 ){
-					this.goodslist.push(rebackjson.data)
+					this.goodslist.push(...rebackjson.data)
 				}else{
 					uni.showToast({
 						title:rebackjson.msg,

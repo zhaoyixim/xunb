@@ -59,7 +59,7 @@
 						}
 						savejson.push(unitjson)
 					})
-					this.dataList.push(savejson)
+					this.dataList.push(...savejson)
 					//this.dataList = savejson
 				}else{
 					uni.showToast({

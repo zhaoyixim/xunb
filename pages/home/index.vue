@@ -46,7 +46,7 @@
 		
 		<view class="list-box item-wrap ">	
 			<uni-list :border="border">
-				<view v-for="(item,index) in barList" :key="index" @click="()=>handlebarclick(item)" >
+				<view v-for="(item,index) in barList.filter(u=>u.used)" :key="index" @click="()=>handlebarclick(item)" >
 					<uni-list-item  showArrow :title="item.labelName" />
 				</view>
 			</uni-list>		
@@ -73,14 +73,17 @@
 				},
 				border:false,
 				barList: [
-					{labelId:1,labelName:"关于我们",tohref:"./aboutus"},
-					{labelId:2,labelName:"加入社群",tohref:"./joinus"},
-					{labelId:3,labelName:"帮助中心",tohref:"./helpcenter"},
-					{labelId:4,labelName:"系统公告",tohref:"./sysmsg"},
-					{labelId:5,labelName:"流水明细",tohref:"./taps/bills"},
-					{labelId:6,labelName:"加盟商",tohref:"./joinmercal"},
-					{labelId:7,labelName:"账户管理",tohref:"./accountmanage"},
-					{labelId:8,labelName:"在线客服",tohref:"../index/chat"}	
+					{labelId:5,labelName:"流水明细",used:true,tohref:"./taps/bills"},
+					{labelId:4,labelName:"系统公告",used:true,tohref:"./sysmsg"},
+					{labelId:8,labelName:"在线客服",used:true,tohref:"../index/chat"},
+					{labelId:1,labelName:"关于我们",used:true,tohref:"./aboutus"},
+					{labelId:7,labelName:"账户管理",used:true,tohref:"./accountmanage"},
+					
+					{labelId:2,labelName:"加入社群",used:false, tohref:"./joinus"},
+					{labelId:3,labelName:"帮助中心",used:false,tohref:"./helpcenter"},
+					{labelId:6,labelName:"加盟商",used:false,tohref:"./joinmercal"},
+					
+					
 					
 				],
 				taplist:[
@@ -95,6 +98,21 @@
 		created() {
 			this.$commonFunc.tokenCheck()
 			this.pageinit()
+		},
+		async onShow() {
+			let getmeminfo = await this.$vcache.vget("meminfo")
+			let memurl = "/user/info"
+			let sendPhone = {mphone:getmeminfo.m_phone}
+			let meminfo = await this.$request.post(memurl,sendPhone)
+			if(meminfo.code == 0) {
+				await this.$vcache.vset("meminfo",meminfo.data)
+				this.pageinit()
+			}else{
+				uni.showToast({
+					title:meminfo.msg,
+					icon:"erorr"
+				})
+			}
 		},
 		methods: {
 			pageinit(){

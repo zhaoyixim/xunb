@@ -69,8 +69,6 @@
 				</view>
 			</view>
 		</uni-popup>
-		
-		
 		<uni-popup :show="popupboxshow" ref="popupbox" mask-background-color="transparent" >
 			<view class="popup-content-wrap bgwhite">
 				<view class="fon28 color666">
@@ -161,7 +159,22 @@
 				await this.getboxlist()
 				await this.getnoticetxt()
 				await this.getjoinusdt()	
-				
+				await this.updatenewuseinfo()
+			},
+			/*获取更新用户信息*/
+			async updatenewuseinfo(){
+				let memurl = "/user/info"
+				let sendPhone = {mphone:this.meminfo.m_phone}
+				let meminfo = await this.$request.post(memurl,sendPhone)
+				if(meminfo.code == 0) {
+					this.meminfo = meminfo.data
+					this.$vcache.vset("meminfo",meminfo.data)
+				}else{
+					uni.showToast({
+						title:meminfo.msg,
+						icon:"erorr"
+					})
+				}		   
 			},
 			
 			async getjoinusdt(){
@@ -296,6 +309,12 @@
 					this.popupboxshow = false
 					this.$refs.popupbox.close()
 					item.allowed = true
+					//更新宝箱级别
+					this.meminfo.box_level = item.bnm
+					this.$vcache.vset("meminfo", this.meminfo)
+					
+					console.log("购买后数据",item)
+					console.log("adsf",this.boxList[listindex].itembox)
 					uni.showToast({
 						title: '激活成功',
 						icon: 'success'

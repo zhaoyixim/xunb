@@ -95,7 +95,8 @@
 				let senddata = {
 					gdsId:items.id
 				}
-				
+				this.$refs.popupgoods.close()
+				this.popupshow=false
 				let rebackjson = await this.$request.post(url,senddata)
 				if(rebackjson.code == 0){
 					uni.showToast({

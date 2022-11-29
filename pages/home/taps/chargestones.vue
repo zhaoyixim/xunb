@@ -55,6 +55,7 @@
 					usdtnum:0,
 					changerate:"0"
 				},
+				meminfo:{},
 				avatarimg:"/static/images/head.png",
 				aboutcoverimg:"http://img.xunbaoji888.com/storage/avatar/4f/e9951f73edb65e6c39bb360cf08fcb.png",
 				border:false,
@@ -80,7 +81,7 @@
 					return ;
 				}
 				this.kobnums = this.fillednum*parseInt(this.pageInfo.changerate)
-				console.log("fillednum",this.fillednum)
+				
 			},
 			async changebtn(){
 				if(this.pageInfo.crystalnum <=0){
@@ -113,25 +114,17 @@
 				let resjson = await this.$request.post(url,senddata)
 				console.log("change",resjson)
 				if(resjson.code == 0){
+					
+				   this.pageInfo.kobnum = this.pageInfo.kobnum+this.kobnums
+				   this.pageInfo.crystalnum = this.pageInfo.crystalnum - this.fillednum
+				   this.meminfo.kob=this.pageInfo.kobnum,
+				   this.meminfo.crystal=this.pageInfo.crystalnum
+				   this.$vcache.vset("meminfo",this.meminfo)
 					uni.showToast({
 						title: '兑换成功',
 						icon: 'success'
 					})
-					let that =this
-					
-					let memurl = "/user/info"
-					let sendPhone = {mphone:senddata.mphone}
-					setTimeout(function(){
-						that.$request.post(memurl,sendPhone).then(res=>{
-							if(res.code == 0 ) {
-								that.$vcache.vset("meminfo",res.data)
-								that.inipagedata()	
-							}
-						})
-					},2000)
-					//重置数据
-					
-					
+				
 				}else{
 					uni.showToast({
 						title: resjson.msg,
@@ -143,10 +136,10 @@
 				this.fillednum = ""
 			},
 			async inipagedata(){
-				let meminfo = this.$vcache.vget('meminfo')
-				this.pageInfo.kobnum = meminfo.kob
-				this.pageInfo.crystalnum = meminfo.crystal
-				this.pageInfo.usdtnum = meminfo.usdt
+				this.meminfo = this.$vcache.vget('meminfo')
+				this.pageInfo.kobnum = this.meminfo.kob
+				this.pageInfo.crystalnum = this.meminfo.crystal
+				this.pageInfo.usdtnum = this.meminfo.usdt
 				let url = '/Exchange/rateCrystalToKob'
 				let getrate = await this.$request.post(url)
 				this.pageInfo.changerate = getrate.data

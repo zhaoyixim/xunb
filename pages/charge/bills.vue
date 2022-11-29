@@ -48,7 +48,9 @@
 		methods: {
 			async getbills(){
 				let url = '/user/getGdsBill'
+				let meminfo = this.$vcache.vget("meminfo")
 				let senddata = {...this.pageDiv}
+				senddata.mphone = meminfo.m_phone
 				let rebackjson = await this.$request.post(url,senddata)
 				if(rebackjson.code == 0 ){
 					let savejson = rebackjson.data

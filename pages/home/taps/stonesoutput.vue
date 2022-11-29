@@ -22,8 +22,8 @@
 			<view class="">地址</view>
 			<view class="input-box-wrap">
 				<view class="input-box">
-					<input class="image-box input-address font18" v-model="addresshashval" placeholder="提币地址" />
-					<view class="newbasecolor  copybtn" @click="()=>makestikbtn()" >粘贴</view>
+					<input class="image-box input-address font18" v-model="addresshashval" placeholder="输入或粘贴钱包地址" />
+					<view v-if="false" class="newbasecolor  copybtn" @click="()=>makestikbtn()" >粘贴</view>
 				</view>
 			</view>
 		</view>
@@ -32,7 +32,7 @@
 			<view class="">金额</view>
 			<view class="input-box-wrap">
 				<view class="input-box-hash">
-					<input class="image-box input-address font20" :placeholder="showPlaceholder" type="number" v-model="kobfilledval" />
+					<input class="image-box input-address font20" :placeholder="showPlaceholder" min="1" type="number" v-model="kobfilledval" />
 					<view class="kob-wrap newbasecolor">{{showUnit}}</view>
 					<view class="newbasecolor  copybtn2" @click="()=>filledAll()">全部</view>
 				</view>
@@ -75,8 +75,8 @@
 					height:this.$vcache.vget('safeHeight')
 				},
 				taplist:[
-					{labelname:"KOB",checked:true,used:true},
-					{labelname:"USDT",checked:false,used:false}
+					{labelname:"KOB",checked:true,used:true,listIndex:0},
+					{labelname:"USDT",checked:false,used:false,listIndex:1}
 				],
 				bianbtnshow:true,
 				meminfo:{},
@@ -86,11 +86,10 @@
 				avatarimg:"/static/images/head.png",
 				aboutcoverimg:"http://img.xunbaoji888.com/storage/avatar/4f/e9951f73edb65e6c39bb360cf08fcb.png",
 				border:false,
-				avaliablekobval:0,
+				avaliablekobval:"",
 				bianaddresslink:"",
-				
 				addresshashval:"",
-				kobfilledval:0
+				kobfilledval:""
 			}
 		},
 		onNavigationBarButtonTap(e){
@@ -118,6 +117,40 @@
 			 })
 		 },
 		 async makebtnsubmit(){
+			 if(this.addresshashval == ""){
+				 uni.showToast({
+				 	title:"地址不能为空",
+				 	icon:"error"
+				 })
+				 return ;
+			 }
+			 if(this.kobfilledval == ""|| this.kobfilledval <=0){
+				 uni.showToast({
+					 title:"金额需大于0",
+					 icon:"error"
+				 })
+				 return ;
+			 }
+			 let findtapitem = this.taplist.find(u=>u.checked)
+			 if(findtapitem.listIndex == 0){
+				 if(this.kobfilledval<20000){
+					 uni.showToast({
+					 	title:"2万KOB起提",
+					 	icon:"error",
+						duration:2000
+					 })
+					 return ;
+				 }
+			 }else{
+				 if(this.kobfilledval<10){
+				 	uni.showToast({
+				 		title:"10U起提",
+				 		icon:"error",
+				 		duration:2000
+				 	})
+				 	return ;				 
+				 }
+			 }
 			 let url = '/Exchange/cashOut'
 			 let finditem  = this.taplist.find(it=>it.checked)
 			 let finditems  = this.radiolist.find(it=>it.checked)
@@ -197,10 +230,13 @@
 					this.radiolist[1].used = false
 					this.showUnit="KOB"
 					this.showPlaceholder="最小20000"
+					this.avaliablekobval =this.meminfo.kob
+					
 				}else{
 					this.radiolist[1].used = true
 					this.showUnit="USDT"
 					this.showPlaceholder="最小10"
+					this.avaliablekobval =this.meminfo.usdt
 				}
 				item.checked= true
 			},

@@ -124,7 +124,8 @@
 						title: '兑换成功',
 						icon: 'success'
 					})
-				
+				  this.kobnums = 0
+				  this.fillednum = ""
 				}else{
 					uni.showToast({
 						title: resjson.msg,

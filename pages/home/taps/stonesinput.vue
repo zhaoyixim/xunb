@@ -32,8 +32,8 @@
 			<view class="">哈希值</view>
 			<view class="input-box-wrap">
 				<view class="input-box-hash">
-					<input class="image-box input-address" auto-focus v-model="investhashval" placeholder="请输入哈希值" />
-					<view class="newbasecolor  copybtn" @click="()=>makestikbtn(1)">粘贴</view>
+					<input class="image-box input-address" auto-focus v-model="investhashval" placeholder="输入或粘贴哈希值" />
+					<view v-if="false" class="newbasecolor  copybtn" @click="()=>makestikbtn(1)">粘贴</view>
 				</view>
 			</view>
 		</view>

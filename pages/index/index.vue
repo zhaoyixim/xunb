@@ -1,5 +1,5 @@
 <template>
-	<view class="index-box" 
+	<view class="index-box bgcommon" 
 	:style="[{minHeight: `${pageInfo.height}px`}]">
 		<view class="top-box-wrap" >
 			<view class="uni-margin-wrap">

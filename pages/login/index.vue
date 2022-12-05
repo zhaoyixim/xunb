@@ -1,5 +1,5 @@
 <template>
-	<view class="loginBg colorwhite" 
+	<view class="loginBg colorwhite bgcommon" 
 	:style='{"minHeight": `${pageInfo.height+10}px`, "background-image":"url(" + require("@/static/images/bg_login.png") + ")"}'
 	>
 		<view class="">

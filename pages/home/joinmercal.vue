@@ -1,5 +1,5 @@
 <template>
-	<view class="jionmercal-box"
+	<view class="jionmercal-box bgcommon"
 	:style='{"minHeight": `${pageInfo.height+10}px`, "background-image":"url(" + require("@/static/images/bg_more.png") + ")"}'>
 	
 		

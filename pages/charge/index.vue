@@ -1,5 +1,5 @@
 <template>
-	<view class="charge-box-wrap"
+	<view class="charge-box-wrap bgcommon"
 	:style='{"minHeight": `${pageInfo.height-44}px`,"background-image":"url(" + require("@/static/images/bg_more.png") + ")"}'
 	>
 		

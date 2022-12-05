@@ -1,5 +1,5 @@
 <template>
-	<view class="home-box" 
+	<view class="home-box bgcommon" 
 	:style='{"minHeight": `${pageInfo.height}px`, "background-image":"url(" + require("@/static/images/bg_my.png") + ")"}'>
 		<view class="title-box item-wrap">
 			<view class="title-box-wrap"  

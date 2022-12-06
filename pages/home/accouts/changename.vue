@@ -1,6 +1,6 @@
 <template>
 	<view class="wrap-box padding15 bgcommon"
-	:style='{"minHeight": `${pageInfo.height-24}px`, "background-image":"url(" + require("@/static/images/bg_more.png") + ")"}'
+	:style='{"minHeight": `${pageInfo.height-24}px`}'
 	>
 		<view class="name-wrap bghalfwhite">
 			 <view class="coloryellow font18 username-box">

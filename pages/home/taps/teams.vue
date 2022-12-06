@@ -1,6 +1,6 @@
 <template>
 	<view class="wrap-box padding15 bgcommon"
-	:style='{"minHeight": `${pageInfo.height-24}px`, "background-image":"url(" + require("@/static/images/bg_more.png") + ")"}'>
+	:style='{"minHeight": `${pageInfo.height-24}px`}'>
 		<view class="charge-title-box bghalfwhite2 font18 coloryellow">
 			<view class="title-box ">
 				<view class="colorwhite">{{pageInfo.allperson}}</view>

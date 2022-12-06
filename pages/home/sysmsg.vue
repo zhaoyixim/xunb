@@ -1,5 +1,5 @@
 <template>
-	<view class="about-box bgcommon" :style='{"minHeight": `${pageInfo.height-14}px`, "background-image":"url(" + require("@/static/images/bg_more.png") + ")"}'>
+	<view class="about-box bgcommon" :style='{"minHeight": `${pageInfo.height-14}px`}'>
 		<view class="about-content-box font16 colorwhite">
 			<view v-for="(item,index) in noticelist" :key="index">
 				<view class="msg-box">{{item.d_title}}</view>

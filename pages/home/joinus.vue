@@ -1,6 +1,6 @@
 <template>
 	<view class="about-box bgcommon"
-	:style='{"minHeight": `${pageInfo.height+10}px`, "background-image":"url(" + require("@/static/images/bg_more.png") + ")"}'>
+	:style='{"minHeight": `${pageInfo.height+10}px`}'>
 	
 		<view class="about-content-box linebr colorwhite" v-html='msgcontent'>
 			

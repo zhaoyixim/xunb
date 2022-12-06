@@ -1,6 +1,6 @@
 <template>
 	<view class="wrap-box padding15 bgcommon"
-	:style='{"minHeight": `${pageInfo.height-24}px`, "background-image":"url(" + require("@/static/images/bg_more.png") + ")"}'
+	:style='{"minHeight": `${pageInfo.height-24}px`}'
 	>
 		<view class="tap-box-wrap font26 colorwhite">
 			<view v-for="(item,index) in taplist" :key="index" class="item-wrap" >

@@ -11,7 +11,7 @@
 			<view>选择网络</view>
 			<view class="net-box-wrap">
 				<radio-group @change="changeradionet" class="net-box">
-					<label v-for="(it,inx) in  radiolist" :key="inx" class="label<strong><strong></strong></strong>-item">
+					<label v-for="(it,inx) in  radiolist" :key="inx" class="label-item">
 						 <radio  :class='{"radio-box":true,"radio-checked":it.checked}' :checked="it.checked" :value="it.labelvalue"/>
 						 <view class="">{{it.labelname}}</view>
 					</label>
@@ -22,7 +22,19 @@
 			<view class="font16">充值地址</view>
 			<view class="input-box-wrap">
 				<view class="input-box">
-					<input readonly v-model="choosedinvestaddr" disabled class="image-box input-address font14" />
+					<textarea 
+					 v-model="choosedinvestaddr" 
+					 :class=
+					 '{
+						"colorwhite":true,
+						 "image-box":true,
+						 "input-address-bep":tapIndexzerochoose,
+						 "input-address":!tapIndexzerochoose,
+						 "font12":true
+					 }'
+					
+					></textarea> 
+					
 					<view class="newbasecolor  copybtn" @click="()=>makecoyebtn(1)">复制</view>
 				</view>
 			</view>
@@ -70,6 +82,7 @@
 				taplist:[
 					{labelname:"USDT",checked:true,used:true}
 				],
+				tapIndexzerochoose:true,
 				radiolist:[
 					{labelname:"BEP-20",labelkey:"net", checked:true,labelvalue:'0'},
 					{labelname:"TRC-20",labelkey:"net",checked:false,labelvalue:'1'}
@@ -147,6 +160,7 @@
 					its.checked = false
 				})
 				item.checked = true
+				this.tapIndexzerochoose = !this.tapIndexzerochoose
 				this.choosedinvestaddr = this.investaddr[indexItem]
 			}
 		}
@@ -192,10 +206,21 @@
 				.input-box{
 					border: 1px #fff solid;
 					border-radius: 5px;
-					height: 45px;
-					display: flex; flex-direction: row;
+					min-height: 45px;
+					display: flex; 
+					flex-direction: row;
 					justify-items: center; align-items: center;
-					.input-address{padding-left: 5px;line-height: 45px; flex: 1;}
+					.input-address-bep{
+						padding-left: 5px;
+						flex: 1;
+					}
+					.input-address{
+					
+					padding-left: 5px;
+					min-height: 45px;
+					line-height: 18px;
+					padding-top: 6px;
+					flex: 1;}
 					.copybtn{ width: 50px;text-align: left;}
 				}
 			}

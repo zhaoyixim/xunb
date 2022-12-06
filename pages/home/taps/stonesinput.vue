@@ -28,8 +28,7 @@
 					 '{
 						"colorwhite":true,
 						 "image-box":true,
-						 "input-address-bep":tapIndexzerochoose,
-						 "input-address":!tapIndexzerochoose,
+						 "input-address":true,
 						 "font12":true
 					 }'
 					
@@ -161,8 +160,8 @@
 					its.checked = false
 				})
 				item.checked = true
-				if(this.pageInfo.height<738)
-					this.tapIndexzerochoose = !this.tapIndexzerochoose
+				/*if(this.pageInfo.height<738)
+					this.tapIndexzerochoose = !this.tapIndexzerochoose*/
 				this.choosedinvestaddr = this.investaddr[indexItem]
 			}
 		}
@@ -219,9 +218,7 @@
 					.input-address{
 					
 					padding-left: 5px;
-					min-height: 45px;
-					//line-height: 18px;
-					padding-top: 6px;
+					
 					flex: 1;}
 					.copybtn{ width: 50px;text-align: left;}
 				}

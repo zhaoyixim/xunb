@@ -85,8 +85,11 @@
 
 <style lang="scss" scoped>	
 @import '@/common/common.scss';
-.list-item-wrap{ padding: 10px; border-radius: 5px;}
+.list-item-wrap{ padding: 10px;
+  margin-bottom: 10px;
+ border-radius: 5px;}
 .item-top-box{display: flex;
+  
 	justify-content:space-between
 }
 .item-middle-box{padding-top: 4px;

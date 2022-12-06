@@ -11,7 +11,7 @@
 			<view>选择网络</view>
 			<view class="net-box-wrap">
 				<radio-group @change="changeradionet" class="net-box">
-					<label v-for="(it,inx) in  radiolist" :key="inx" class="label-item">
+					<label v-for="(it,inx) in  radiolist" :key="inx" class="label<strong><strong></strong></strong>-item">
 						 <radio  :class='{"radio-box":true,"radio-checked":it.checked}' :checked="it.checked" :value="it.labelvalue"/>
 						 <view class="">{{it.labelname}}</view>
 					</label>
@@ -19,17 +19,17 @@
 			</view>
 		</view>
 		<view class="address-box colorwhite font18">
-			<view class="">充值地址</view>
+			<view class="font16">充值地址</view>
 			<view class="input-box-wrap">
 				<view class="input-box">
-					<input readonly v-model="choosedinvestaddr" disabled class="image-box input-address" />
+					<input readonly v-model="choosedinvestaddr" disabled class="image-box input-address font14" />
 					<view class="newbasecolor  copybtn" @click="()=>makecoyebtn(1)">复制</view>
 				</view>
 			</view>
 		</view>
 		
 		<view class="address-box  address-box-hash colorwhite font18">
-			<view class="">哈希值</view>
+			<view class="font16">哈希值</view>
 			<view class="input-box-wrap">
 				<view class="input-box-hash">
 					<input class="image-box input-address" auto-focus v-model="investhashval" placeholder="输入或粘贴哈希值" />
@@ -121,7 +121,7 @@
 			},
 			makecoyebtn(_type=1){
 				uni.setClipboardData({
-					data: this.investaddr,
+					data: this.choosedinvestaddr,
 					success: function () {
 						uni.showToast({
 							title:"复制成功",

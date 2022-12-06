@@ -44,7 +44,8 @@
 			<view class="font16">哈希值</view>
 			<view class="input-box-wrap">
 				<view class="input-box-hash">
-					<input class="image-box input-address" auto-focus v-model="investhashval" placeholder="输入或粘贴哈希值" />
+					<textarea class="image-box input-address" auto-focus v-model="investhashval" placeholder="输入或粘贴哈希值" >
+					</textarea> 
 					<view v-if="false" class="newbasecolor  copybtn" @click="()=>makestikbtn(1)">粘贴</view>
 				</view>
 			</view>
@@ -160,7 +161,8 @@
 					its.checked = false
 				})
 				item.checked = true
-				this.tapIndexzerochoose = !this.tapIndexzerochoose
+				if(this.pageInfo.height<738)
+					this.tapIndexzerochoose = !this.tapIndexzerochoose
 				this.choosedinvestaddr = this.investaddr[indexItem]
 			}
 		}
@@ -231,7 +233,10 @@
 			height: 45px;
 			display: flex; flex-direction: row;
 			justify-items: center; align-items: center;
-			.input-address{padding-left: 5px;line-height: 45px; flex: 1;}
+			.input-address{
+			padding-left: 5px;
+			line-height: 20px; 
+			flex: 1;}
 			.copybtn{ width: 50px;text-align: left;}
 		}
 		.btn-style-wrap{

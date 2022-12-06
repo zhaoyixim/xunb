@@ -60,7 +60,7 @@
 				1、转账完后，请在10分钟内输入哈希值并且提交，过期无效。
 				<br>2、请勿向上述地址充值任何非USDT资产，否则资产将不可找回。
 				<br>3、您的充币需要经过区块确认，请耐心等待。
-				<br>4、最低充值5U、否则将无法到账。
+				<br>4、最低充值5USDT、否则将无法到账。
 				<br>5、该地址可反复进行充币，一般情况下不会更换，如有更换，我们会提前公告通知您。
 			</view>
 		</view>
@@ -220,7 +220,7 @@
 					
 					padding-left: 5px;
 					min-height: 45px;
-					line-height: 18px;
+					//line-height: 18px;
 					padding-top: 6px;
 					flex: 1;}
 					.copybtn{ width: 50px;text-align: left;}

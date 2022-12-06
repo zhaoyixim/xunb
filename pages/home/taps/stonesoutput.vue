@@ -238,6 +238,7 @@
 					this.showPlaceholder="最小10"
 					this.avaliablekobval =this.meminfo.usdt
 				}
+				this.kobfilledval = ""
 				item.checked= true
 			},
 			

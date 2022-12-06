@@ -22,7 +22,7 @@
 			<view class="">充值地址</view>
 			<view class="input-box-wrap">
 				<view class="input-box">
-					<input readonly v-model="investaddr" disabled class="image-box input-address" />
+					<input readonly v-model="choosedinvestaddr" disabled class="image-box input-address" />
 					<view class="newbasecolor  copybtn" @click="()=>makecoyebtn(1)">复制</view>
 				</view>
 			</view>
@@ -64,7 +64,8 @@
 				pageInfo:{
 					height:this.$vcache.vget('safeHeight')
 				},
-				investaddr:"",
+				investaddr:null,
+				choosedinvestaddr:"",
 				investhashval:"",
 				taplist:[
 					{labelname:"USDT",checked:true,used:true}
@@ -116,6 +117,7 @@
 				let url = "/Exchange/getInvestAddr"
 				let returnjson = await this.$request.post(url)
 				this.investaddr = returnjson.data
+				this.choosedinvestaddr = this.investaddr[0]
 			},
 			makecoyebtn(_type=1){
 				uni.setClipboardData({
@@ -145,6 +147,7 @@
 					its.checked = false
 				})
 				item.checked = true
+				this.choosedinvestaddr = this.investaddr[indexItem]
 			}
 		}
 	}

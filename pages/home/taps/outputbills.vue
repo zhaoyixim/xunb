@@ -6,14 +6,18 @@
 		
 		<view class="list-wrap">
 			<view v-for="(item,index) in dataList " :key="index" class="list-item-wrap bghalfwhite">
-				<view class="item-left">
-					<view class="bills-litter-title coloryellow font20 marbtn10">提现{{item.amount}} {{item.c_type}}</view>
-					<view class="ctime-wrap colorb3b3b3 font16">{{item.c_time}}</view>
+				<view class="item-top-box  font18">
+					<view class="coloryellow">提现{{item.c_type}} ({{item.nettype}})</view>
+					<view class="txtfixed colorwhite">-{{item.amount}}{{item.c_type}} </view>
 				</view>
-				<view class="item-right colorwhite font20">
-					<view class="marbtn10 font16"> </view>
-					<view :class='["font20",item.stabtnstyle]'> {{item.statxt}} </view>
+				<view class="item-middel-box">
+					<view class="text-box-wrap coloryellow font18">提现地址:<view class="font16 colorwhite text-content">{{item.outaddr}}</view> </view>
 				</view>
+				<view class="item-bottom-box colorb3b3b3">
+					<view class="font16">{{item.c_time}}</view>
+					<view class="font16"> {{item.statxt}} </view>
+				</view>
+			
 			</view>
 		</view>
 	</view>
@@ -53,8 +57,10 @@
 							amount:it.amount,
 							c_time:it.c_time,
 							c_type:it.c_type,
+							nettype:it.net_type,
+							outaddr:it.out_addr,
 							stabtnstyle:it.bill_sta ==0?"btncomfirimg":(it.bill_sta==1?"btnsure":"btnfail"),
-							statxt:it.bill_sta ==0?"确认中":(it.bill_sta==1?"成功":"失败")
+							statxt:it.bill_sta ==0?"确认中":(it.bill_sta==1?"已转入":"充值失败")
 						}
 						savejson.push(unitjson)
 					})
@@ -73,6 +79,28 @@
 
 <style lang="scss" scoped>	
 @import '@/common/common.scss';
-@import './common.scss';
+.list-item-wrap{margin-bottom: 10px;}
+.item-top-box{
+	display: flex;
+	padding: 10px; padding-bottom: 0px;
+	justify-content: space-between;
+	align-items: center; justify-items: center;
+	.txtfixed{padding-top: 6px;}
+}
+.item-middel-box{padding: 2px 10px; 
+	.text-box-wrap{
+		display: flex; flex-direction: row; align-items: center;
+		.text-content{padding-left:4px; width:69.2%;
+		 word-wrap: break-word;
+		 word-break: break-all;
+		  }
+	}
+}
+.item-bottom-box{
+	display: flex;padding: 4px 10px; 
+	justify-content: space-between;
+	align-items: center;
+}
+
 	
 </style>

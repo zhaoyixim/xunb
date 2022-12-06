@@ -6,13 +6,22 @@
 		
 		<view class="list-wrap">
 			<view v-for="(item,index) in dataList " :key="index" class="list-item-wrap bghalfwhite">
-				<view class="item-left">
-					<view class="bills-litter-title coloryellow font20 marbtn10">充值{{item.usdt}} USDT</view>
-					<view class="ctime-wrap colorb3b3b3 font16">{{item.c_time}}</view>
+				<view class="item-top-box font18 colorwhite">
+					<view>USDT链上充值</view>
+					<view>{{item.nettype}}</view>
 				</view>
-				<view class="item-right colorwhite font20">
-					<view class="marbtn10 font16"> </view>
-					<view :class='["font20",item.stabtnstyle]'> {{item.statxt}} </view>
+				<view class="item-middle-box">
+					<view class="middle-item-box coloryellow font16">
+						<view class="middel-top-item item-flex">数量</view>
+						<view class="middel-top-item item-flex">状态</view>
+						<view class="middel-top-item middelwidthfixed">时间</view>
+					</view>
+					<view class="middle-item-box colorb3b3b3 font16">
+						<view class="middel-top-item item-flex">{{item.usdt}}</view>
+						<view class="middel-top-item item-flex">{{item.statxt}} </view>
+						<view class="middel-top-item middelwidthfixed ctime-item font14">{{item.c_time}}</view>
+					</view>
+					
 				</view>
 			</view>
 		</view>
@@ -36,6 +45,7 @@
 			}
 		},
 		created() {
+			this.$commonFunc.tokenCheck()
 			this.getbills()
 		},
 		onReachBottom(){
@@ -54,8 +64,9 @@
 						let unitjson={
 							usdt:it.invest_cnt,
 							c_time:it.c_time,
+							nettype:it.net_type,
 							stabtnstyle:it.bill_sta ==0?"btncomfirimg":(it.bill_sta==1?"btnsure":"btnfail"),
-							statxt:it.bill_sta ==0?"确认中":(it.bill_sta==1?"成功":"失败")
+							statxt:it.bill_sta ==0?"确认中":(it.bill_sta==1?"已转入":"充值失败")
 						}
 						savejson.push(unitjson)
 					})
@@ -74,6 +85,20 @@
 
 <style lang="scss" scoped>	
 @import '@/common/common.scss';
-@import './common.scss';
-	
+.list-item-wrap{ padding: 10px; border-radius: 5px;}
+.item-top-box{display: flex;
+	justify-content:space-between
+}
+.item-middle-box{padding-top: 4px;
+	.middle-item-box{
+		display: flex;
+		align-items: center;
+		flex-direction: row;
+		padding-bottom: 4px;
+		.item-flex{text-align: center;flex:1}
+		
+	}
+	.middelwidthfixed{width: 120px; text-align: center;}
+	.ctime-item{padding-top: 4px;}
+}
 </style>

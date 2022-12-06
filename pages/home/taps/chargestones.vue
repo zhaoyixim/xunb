@@ -59,7 +59,6 @@
 				avatarimg:"/static/images/head.png",
 				aboutcoverimg:"http://img.xunbaoji888.com/storage/avatar/4f/e9951f73edb65e6c39bb360cf08fcb.png",
 				border:false,
-				
 			}
 		},
 		onNavigationBarButtonTap(e){

@@ -22,7 +22,7 @@
 			<view class="">地址</view>
 			<view class="input-box-wrap">
 				<view class="input-box">
-					<input class="image-box input-address font18" v-model="addresshashval" placeholder="输入或粘贴钱包地址" />
+					<input class="image-box input-address font12" v-model="addresshashval" placeholder="输入或粘贴钱包地址" />
 					<view v-if="false" class="newbasecolor  copybtn" @click="()=>makestikbtn()" >粘贴</view>
 				</view>
 			</view>
@@ -56,7 +56,7 @@
 			<view class="">KOB币安智能链地址:</view>
 			<view class="input-box-wrap">
 				<view class="input-box2">
-					<input class="image-box input-address" disabled readonly  v-model="bianaddresslink" />
+					<input class="image-box input-address font12" disabled readonly  v-model="bianaddresslink" />
 					<view class="newbasecolor  copybtn" @click="()=>makecoyebtnbian()">复制</view>
 				</view>
 			</view>

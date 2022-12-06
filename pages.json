@@ -96,7 +96,7 @@
 		{
 			"path": "pages/index/newuser",
 			"style": {
-				"navigationBarTitleText": "新手指导",
+				"navigationBarTitleText": "寻宝记",
 				"app-plus": {
 					"bounce": "vertical",
 					"titleNView":{
@@ -121,7 +121,7 @@
 		{
 			"path": "pages/home/invites",
 			"style": {
-				"navigationBarTitleText": "我的邀请函",
+				"navigationBarTitleText": "寻宝记",
 				"app-plus": {
 					"bounce": "vertical",
 					"titleNView":{
@@ -137,7 +137,7 @@
 		{
 			"path": "pages/home/aboutus",
 			"style": {
-				"navigationBarTitleText": "关于我们",
+				"navigationBarTitleText": "寻宝记",
 				"app-plus": {
 					"bounce": "vertical",
 					"titleNView":{
@@ -153,7 +153,7 @@
 		{
 			"path": "pages/home/joinus",
 			"style": {
-				"navigationBarTitleText": "加入社群",
+				"navigationBarTitleText": "寻宝记",
 				"app-plus": {
 					"bounce": "vertical",
 					"titleNView":{
@@ -169,7 +169,7 @@
 		{
 			"path": "pages/home/helpcenter",
 			"style": {
-				"navigationBarTitleText": "帮助中心",
+				"navigationBarTitleText": "寻宝记",
 				"app-plus": {
 					"bounce": "vertical",
 					"titleNView":{
@@ -185,7 +185,7 @@
 		{
 			"path": "pages/home/sysmsg",
 			"style": {
-				"navigationBarTitleText": "系统公告",
+				"navigationBarTitleText": "寻宝记",
 				"app-plus": {
 					"bounce": "vertical",
 					"titleNView":{
@@ -201,7 +201,7 @@
 		{
 			"path": "pages/home/accountmanage",
 			"style": {
-				"navigationBarTitleText": "账户管理",
+				"navigationBarTitleText": "寻宝记",
 				"app-plus": {
 					"bounce": "vertical",
 					"titleNView":{
@@ -217,7 +217,7 @@
 		{
 			"path": "pages/home/joinmercal",
 			"style": {
-				"navigationBarTitleText": "加盟商",
+				"navigationBarTitleText": "寻宝记",
 				"app-plus": {
 					"bounce": "vertical",
 					"titleNView":{
@@ -233,7 +233,7 @@
 		{
 			"path": "pages/home/accouts/changeavatar",
 			"style": {
-				"navigationBarTitleText": "账户管理",
+				"navigationBarTitleText": "寻宝记",
 				"app-plus": {
 					"bounce": "vertical",
 					"titleNView":{
@@ -249,7 +249,7 @@
 		{
 			"path": "pages/home/accouts/changename",
 			"style": {
-				"navigationBarTitleText": "账户管理",
+				"navigationBarTitleText": "寻宝记",
 				"app-plus": {
 					"bounce": "vertical",
 					"titleNView":{
@@ -265,7 +265,7 @@
 		{
 			"path": "pages/home/taps/chargestones",
 			"style": {
-				"navigationBarTitleText": "晶块兑换",
+				"navigationBarTitleText": "寻宝记",
 				"app-plus": {
 					"bounce": "vertical",
 					"titleNView":{
@@ -287,7 +287,7 @@
 		{
 			"path": "pages/home/taps/changebills",
 			"style": {
-				"navigationBarTitleText": "兑换记录",
+				"navigationBarTitleText": "寻宝记",
 				"app-plus": {
 					"bounce": "vertical",
 					"titleNView":{
@@ -302,7 +302,7 @@
 		{
 			"path": "pages/home/taps/stonesinput",
 			"style": {
-				"navigationBarTitleText": "充币",
+				"navigationBarTitleText": "寻宝记",
 				"app-plus": {
 					"bounce": "vertical",
 					"titleNView":{
@@ -325,7 +325,7 @@
 		{
 			"path": "pages/home/taps/stonesoutput",
 			"style": {
-				"navigationBarTitleText": "提币",
+				"navigationBarTitleText": "寻宝记",
 				"app-plus": {
 					"bounce": "vertical",
 					"titleNView":{
@@ -348,7 +348,7 @@
 		{
 			"path": "pages/home/taps/outputbills",
 			"style": {
-				"navigationBarTitleText": "提币记录",
+				"navigationBarTitleText": "寻宝记",
 				"app-plus": {
 					"bounce": "vertical",
 					"titleNView":{
@@ -363,7 +363,7 @@
 		{
 			"path": "pages/home/taps/inputbills",
 			"style": {
-				"navigationBarTitleText": "充币记录",
+				"navigationBarTitleText": "寻宝记",
 				"app-plus": {
 					"bounce": "vertical",
 					"titleNView":{
@@ -380,7 +380,7 @@
 		{
 			"path": "pages/home/taps/teams",
 			"style": {
-				"navigationBarTitleText": "水晶转出",
+				"navigationBarTitleText": "寻宝记",
 				"app-plus": {
 					"bounce": "vertical",
 					"titleNView":{
@@ -396,7 +396,7 @@
 		{
 			"path": "pages/home/taps/bills",
 			"style": {
-				"navigationBarTitleText": "我的账单",
+				"navigationBarTitleText": "寻宝记",
 				"app-plus": {
 					"bounce": "vertical",
 					"titleNView":{
@@ -412,7 +412,7 @@
 		{
 			"path": "pages/charge/index",
 			"style": {
-				"navigationBarTitleText": "商品兑换",
+				"navigationBarTitleText": "寻宝记",
 				"app-plus": {
 					"bounce": "vertical",
 					"titleNView":{
@@ -436,7 +436,7 @@
 		{
 			"path": "pages/charge/bills",
 			"style": {
-				"navigationBarTitleText": "购买记录",
+				"navigationBarTitleText": "寻宝记",
 				"app-plus": {
 					"bounce": "vertical",
 					"titleNView":{

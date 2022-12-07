@@ -98,6 +98,9 @@
 				url: './inputbills'
 			})
 		},
+		onShow() {
+			this.investhashval = ""
+		},
 		created() {
 			this.initpage()
 		},

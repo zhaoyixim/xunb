@@ -102,6 +102,10 @@
 			this.getnettyps()
 			this.getbianaddress()
 		},
+		onShow() {
+			this.addresshashval = ""
+			this.kobfilledval = ""
+		},
 		methods: {
 		 getbianaddress(){
 			 let url = '/Exchange/getKobSafe'

@@ -60,7 +60,7 @@
 							nettype:it.net_type,
 							outaddr:it.out_addr,
 							stabtnstyle:it.bill_sta ==0?"btncomfirimg":(it.bill_sta==1?"btnsure":"btnfail"),
-							statxt:it.bill_sta ==0?"确认中":(it.bill_sta==1?"已转入":"充值失败")
+							statxt:it.bill_sta ==0?"确认中":(it.bill_sta==1?"已转出":"提出失败")
 						}
 						savejson.push(unitjson)
 					})

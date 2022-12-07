@@ -52,7 +52,7 @@
 			</view>
 		</view>
 		
-		<view v-if="bianbtnshow" class="address-box colorwhite font18">
+		<view v-if="false" class="address-box colorwhite font18">
 			<view class="">KOB币安智能链地址:</view>
 			<view class="input-box-wrap">
 				<view class="input-box2">
@@ -167,8 +167,10 @@
 				 	icon:"success"
 				 })
 				 setTimeout(function(){
-				 	uni.navigateBack()
-				 },2000)
+				 	uni.navigateTo({
+				 		url: './outputbills'
+				 	})
+				 },1000)
 			 }else{
 				 uni.showToast({
 				 	title:rebakjson.msg,

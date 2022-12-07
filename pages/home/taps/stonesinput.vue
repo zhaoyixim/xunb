@@ -116,8 +116,10 @@
 					 icon:"success"
 				 })
 				 setTimeout(function(){
-					 uni.navigateBack()
-				 },2000)
+					 uni.navigateTo({
+					 	url: './inputbills'
+					 })
+				 },1000)
 				 
 			 }else{
 				 uni.showToast({

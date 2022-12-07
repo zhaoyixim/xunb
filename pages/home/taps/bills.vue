@@ -15,10 +15,10 @@
 					<view class="ctime-wrap colorb3b3b3 font14">{{item.create_time}}</view>
 				</view>
 				<view class="item-right">
-					<view class="font20 colorwhite">{{item.score_val}}
+					<view class="font18 colorwhite right-item-top">{{item.score_val}}
 					{{listindex == 0 ?'晶块':(listindex ==1?"KOB":"USDT")}}
 					</view>
-					<view class="colorb3b3b3 font18">{{listindex == 0 ?'晶块':'余额'}}:{{item.balance}}</view>
+					<view class="colorb3b3b3 font14">{{listindex == 0 ?'晶块':'余额'}}:{{item.balance}}</view>
 				</view>
 			</view>
 			
@@ -90,6 +90,7 @@
 
 <style lang="scss" scoped>	
 @import '@/common/common.scss';
+	.right-item-top{margin-bottom: 5px;}
 	.wrap-box{
 		//min-height: 92.5vh;		
 		//background-image: url(@/static/images/bg_more.png) !important;

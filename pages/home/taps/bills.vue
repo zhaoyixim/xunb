@@ -62,6 +62,10 @@
 		},
 		methods: {
 			async handletapclick(itemindex,tap=true){
+				if(tap) {
+					this.pageDiv.pageNo = 1
+					this.msglist = []
+				}
 				this.itemindex = itemindex
 				this.taplist.forEach(it=>{
 					it.checked = false

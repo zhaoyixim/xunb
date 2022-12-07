@@ -58,10 +58,10 @@
 		},
 		onReachBottom(){
 			this.pageDiv.pageNo ++
-			this.handletapclick(this.itemindex)
+			this.handletapclick(this.itemindex,false)
 		},
 		methods: {
-			async handletapclick(itemindex){
+			async handletapclick(itemindex,tap=true){
 				this.itemindex = itemindex
 				this.taplist.forEach(it=>{
 					it.checked = false
@@ -77,8 +77,14 @@
 					mphone:meminfo.m_phone
 				}
 				let rebakjson = await this.$request.post(url,senddata)
-				if(rebakjson.code == 0) this.msglist.push(...rebakjson.data)
-				 
+				if(rebakjson.code == 0) {
+					if(tap){
+						this.msglist=rebakjson.data
+					}else{
+						this.msglist.push(...rebakjson.data)
+					}
+						
+				}
 				 
 				item.checked = true
 				this.listindex = itemindex

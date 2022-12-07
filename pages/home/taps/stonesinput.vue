@@ -118,6 +118,7 @@
 					 title:"提交成功",
 					 icon:"success"
 				 })
+				// this.$commonFunc.updatememinfo()
 				 setTimeout(function(){
 					 uni.navigateTo({
 					 	url: './inputbills'

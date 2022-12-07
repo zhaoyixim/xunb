@@ -105,6 +105,7 @@
 		onShow() {
 			this.addresshashval = ""
 			this.kobfilledval = ""
+			this.getnewuseinfo()
 		},
 		methods: {
 		 getbianaddress(){
@@ -170,6 +171,7 @@
 				 	title:'提现成功',
 				 	icon:"success"
 				 })
+				
 				 setTimeout(function(){
 				 	uni.navigateTo({
 				 		url: './outputbills'
@@ -190,8 +192,13 @@
 				let meminfo = await this.$request.post(memurl,sendPhone)
 				if(meminfo.code == 0) {
 					this.meminfo = meminfo.data
-					this.$vcache.vset("meminfo",meminfo.data)
-					this.avaliablekobval =this.meminfo.kob
+					await this.$vcache.vset("meminfo",meminfo.data)
+					let getitem = this.taplist.find(u=>u.checked)
+					if(getitem.listIndex == 0)
+					    this.avaliablekobval =this.meminfo.kob
+					else
+						this.avaliablekobval =this.meminfo.usdt
+					
 				}else{
 					uni.showToast({
 						title:meminfo.msg,

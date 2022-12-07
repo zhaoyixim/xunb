@@ -64,6 +64,21 @@ const commonFunc = {
 			 return gettokenfundata
 		 }
 		 return true
+	},
+	updatememinfo:async()=>{
+		let getmeminfo = await vcache.vget("meminfo")
+		let memurl = "/user/info"
+		let sendPhone = {mphone:getmeminfo.m_phone}
+		let meminfo = await request.post(memurl,sendPhone)
+		
+		if(meminfo.code == 0) {
+			await vcache.vset("meminfo",meminfo.data)
+		}else{
+			uni.showToast({
+				title:meminfo.msg,
+				icon:"erorr"
+			})
+		}
 	}
 }
 export default commonFunc

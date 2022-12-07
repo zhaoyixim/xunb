@@ -52,7 +52,7 @@
 			</view>
 		</view>
 		
-		<view v-if="false" class="address-box colorwhite font18">
+		<view v-if="bianbtnshow" class="address-box colorwhite font18">
 			<view class="">KOB币安智能链地址:</view>
 			<view class="input-box-wrap">
 				<view class="input-box2">
@@ -240,6 +240,7 @@
 					this.showPlaceholder="最小10"
 					this.avaliablekobval =this.meminfo.usdt
 				}
+				this.bianbtnshow = !this.bianbtnshow
 				this.kobfilledval = ""
 				item.checked= true
 			},
@@ -251,7 +252,7 @@
 			    	its.checked = false
 			    })
 			    item.checked = true
-				this.bianbtnshow = !this.bianbtnshow
+				
 			},
 			makecoyebtnbian(){
 				uni.setClipboardData({

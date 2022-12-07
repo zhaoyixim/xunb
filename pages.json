@@ -401,7 +401,7 @@
 					"bounce": "vertical",
 					"titleNView":{
 						"backgroundColor":"#353535",
-						"titleText":"寻宝记",
+						"titleText":"账单记录",
 						"titleSize":"18px",
 						"titleColor":"#FFF",
 						"autoBackButton":true

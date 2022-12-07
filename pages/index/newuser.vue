@@ -25,7 +25,7 @@
 		},
 		created() {
 			this.$commonFunc.tokenCheck()
-			this.pageinit()	
+			this.pageinit()
 		},
 		methods: {
 			async pageinit(){

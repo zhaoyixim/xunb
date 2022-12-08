@@ -262,7 +262,7 @@
 						title:"加盟成功",
 						icon:"success"
 					})
-					
+					this.$commonFunc.updatememinfo()
 					this.popupshow = false
 					this.$refs.popupunion.close()
 					

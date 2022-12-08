@@ -75,7 +75,11 @@
 			}
 		},
 		created() {
-					
+			let routes  =  getCurrentPages()
+			let curParam = routes[routes.length - 1].options;
+			if(undefined != curParam.id){
+				this.list[3].value = curParam.id
+			}
 		},
 		onUnload() {
 			clearInterval(this.timerhandle)

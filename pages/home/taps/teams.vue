@@ -111,7 +111,10 @@
 				},
 			}
 		},
-		created() {
+		async created() {
+		 await this.$commonFunc.tokenCheck()
+		 await this.getfensidata()
+		 
 		 this.pageinit()	
 		},
 		onReachBottom(){
@@ -120,6 +123,16 @@
 			
 		},
 		methods: {
+			async getfensidata(){
+				let getfensiurl = '/team'
+				let getfensidata =  await this.$request.post(getfensiurl)
+				if(getfensidata.code == 0){
+					this.pageInfo.directperson = getfensidata.data.ztCnt
+					this.pageInfo.redirectperson = getfensidata.data.jtCnt
+					this.pageInfo.allperson = parseInt(getfensidata.data.ztCnt) + parseInt(getfensidata.data.jtCnt)
+					
+				}	
+			},
 			invitenow(){
 				uni.navigateTo({
 					url: './../invites'
@@ -128,46 +141,35 @@
 			async pageinit(){
 				let meminfo = this.$vcache.vget('meminfo')
 				this.pageInfo.id = meminfo.id
-				let url = '/Team'
+				let findtap = this.taplist.find(u=>u.checked)
+				
+				let url = '/team/getZt'
+				if(findtap.labelid == 1){
+					url = '/team/getJt'
+				}
 				let senddata = {...this.pageDiv}
 				let rebjson = await this.$request.post(url,senddata)
-			//console.log("asdfadfs",rebjson)
 				if(rebjson.code == 0){
-					this.pageInfo.directperson = rebjson.data.ztCnt
-					this.pageInfo.redirectperson = rebjson.data.jtCnt
-					this.pageInfo.allperson = parseInt(rebjson.data.ztCnt) + parseInt(rebjson.data.jtCnt)
 					let that = this
-					let zjdata = rebjson.data
-					if(rebjson.data.ztCnt>0){
-						zjdata.ztUser.forEach(it=>{
-							let unijson = {
-								mphone:it.m_phone,
-								mlevel:"vip1",
-								box_lev:it.box_lev
-							}
-							that.savezjie.push(unijson)
-						})
-					}
-					if(rebjson.data.jtCnt>0){
-						zjdata.jtUser.forEach(it=>{
-							let unijson2 = {
-								mphone:it.m_phone,
-								mlevel:"vip1",
-								box_lev:it.box_lev
-							}
-							that.savejjie.push(unijson2)
-						})
-					}
+					let listdata = rebjson.data
+					listdata.forEach(it=>{
+						let unijson = {
+							mphone:it.m_phone,
+							mlevel:"vip1",
+							box_lev:it.box_lev
+						}
+						that.savezjie.push(unijson)
+					})
 					this.listdata = this.savezjie
 				}
 			},
 			handleclick(taplistindex){
 				this.taplist.forEach(it=>it.checked = false)
 				let item = this.taplist[taplistindex]
-				if(taplistindex == 0){
-					this.listdata = this.savezjie
-				}else this.listdata = this.savejjie
 				item.checked = true
+				this.savezjie=[]
+				this.pageDiv.pageNo = 1
+				this.pageinit()
 			},
 			clickIcon(){
 				return false;

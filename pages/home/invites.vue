@@ -57,7 +57,7 @@
 					});
 				}else if(itemindex ==1){
 					uni.setClipboardData({
-						data: this.pagedata.shareLink,
+						data: this.pagedata.shareLink+'?id='+this.meminfo.id.toString(),
 						success: function () {
 							uni.showToast({
 								title:"链接复制成功",
@@ -114,7 +114,7 @@
 			async pageinit(){
 				let url = '/invite/getQR'
 				let getjson = await this.$request.post(url)
-				console.log("asdf",getjson)
+				//console.log("asdf",getjson)
 				if(getjson.code == 0){
 					this.pagedata = getjson.data
 					this.coverimg = getjson.data.adUrl

@@ -1,5 +1,5 @@
 //@import '@/common/global.css';
-@for $i from 12 through 68 {
+@for $i from 8 through 68 {
 	.font#{$i}{font-size: #{$i}px;}
 }
 .padding15{padding: 15px;}

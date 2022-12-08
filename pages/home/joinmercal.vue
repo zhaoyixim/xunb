@@ -1,21 +1,22 @@
 <template>
 	<view class="jionmercal-box bgcommon"
 	:style='{"minHeight": `${pageInfo.height+10}px`}'>
-	
-		
 		<view class="top-box-wrap colorwhite ">
 			<view class="item-title">
 				<view class="font32">{{pagedata.total}}</view>
+				<view class="font10">USDT</view>
 				<view class="font18">总收益</view>
 			</view>
 			<view class="item-wrap">
 				<view class="item-box-wrap">
 					<view class="font26">{{pagedata.today}}</view>
+					<view class="font10">USDT</view>
 					<view class="font16">今日收益</view>
 				</view>
 				<view>|</view>
 				<view class="item-box-wrap">
 					<view class="font26">{{pagedata.yesterday}}</view>
+					<view class="font10">USDT</view>
 					<view class="font16">昨日收益</view>
 				</view>
 			</view>
@@ -74,7 +75,7 @@
 		},
 		created() {
 			this.$commonFunc.tokenCheck()
-			this.pageinit()
+			this.$commonFunc.updatememinfo()
 			this.getdatastatictis()
 			this.getlistdata()
 		},
@@ -83,14 +84,6 @@
 			this.getlistdata()
 		},
 		methods: {
-			async pageinit(){
-				let memurl = "/user/info"
-				let sendPhone = {mphone:this.meminfo.mphone}
-				let meminfos = await this.$request.post(memurl,sendPhone)
-				if(meminfos.code == 0) 
-						await this.$vcache.vset("meminfo",meminfos.data)
-				
-			},
 			async getdatastatictis(){
 				let url ='/user/getTotalUsdt'
 				let sendPhone = {mphone:this.meminfo.mphone}

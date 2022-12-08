@@ -67,7 +67,7 @@
 		},
 		methods: {
 			handellogout(){
-				console.log("asdfadsf")
+				//console.log("asdfadsf")
 				if(this.$vcache.vclear()){
 					uni.showToast({
 						title:"即将退出",

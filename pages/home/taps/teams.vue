@@ -106,7 +106,8 @@
 				savejjie:[],
 				pageDiv:{
 					pageNo:1,
-					pageSize:10
+					pageSize:10,
+					
 				},
 			}
 		},
@@ -116,6 +117,7 @@
 		onReachBottom(){
 			this.pageDiv.pageNo ++
 			this.pageinit()
+			
 		},
 		methods: {
 			invitenow(){
@@ -129,29 +131,33 @@
 				let url = '/Team'
 				let senddata = {...this.pageDiv}
 				let rebjson = await this.$request.post(url,senddata)
-				//console.log("",rebjson)
+			//console.log("asdfadfs",rebjson)
 				if(rebjson.code == 0){
 					this.pageInfo.directperson = rebjson.data.ztCnt
 					this.pageInfo.redirectperson = rebjson.data.jtCnt
 					this.pageInfo.allperson = parseInt(rebjson.data.ztCnt) + parseInt(rebjson.data.jtCnt)
-				
-					rebjson.data.ztUser.forEach(it=>{
-						let unijson = {
-							mphone:it.m_phone,
-							mlevel:"vip1",
-							box_lev:it.box_lev
-						}
-						this.savezjie.push(...unijson)
-					})
-					
-					rebjson.data.jtUser.forEach(it=>{
-						let unijson = {
-							mphone:it.m_phone,
-							mlevel:"vip1",
-							box_lev:it.box_lev
-						}
-						this.savejjie.push(...unijson)
-					})
+					let that = this
+					let zjdata = rebjson.data
+					if(rebjson.data.ztCnt>0){
+						zjdata.ztUser.forEach(it=>{
+							let unijson = {
+								mphone:it.m_phone,
+								mlevel:"vip1",
+								box_lev:it.box_lev
+							}
+							that.savezjie.push(unijson)
+						})
+					}
+					if(rebjson.data.jtCnt>0){
+						zjdata.jtUser.forEach(it=>{
+							let unijson2 = {
+								mphone:it.m_phone,
+								mlevel:"vip1",
+								box_lev:it.box_lev
+							}
+							that.savejjie.push(unijson2)
+						})
+					}
 					this.listdata = this.savezjie
 				}
 			},

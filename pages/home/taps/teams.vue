@@ -59,7 +59,7 @@
 		
 		</view>
 	
-		<view class="teams-content-box colorwhite font20">
+		<view class="teams-content-box colorwhite font18">
 			<view class="content-box-wrap  bghalfwhite2">
 				<view v-for="(it,indexs) in taplist" :key="indexs" :class='{"content-item":true,"item-active":it.checked}' @click="()=>handleclick(indexs)" >{{it.labelname}}</view>
 			</view>			
@@ -250,7 +250,8 @@
 				.content-item{flex: 1;
 				 margin: 0 16px; border-bottom: 4px transparent solid;
 				 padding: 5px 0;}
-				.item-active{border-bottom: 4px #fff solid;}
+				.item-active{color:#54a9f7;
+					border-bottom: 3px #54a9f7 solid;}
 			}
 		}
 		.popup-content{
@@ -265,7 +266,7 @@
 		margin-top: 10px;
 		.left-box{flex: 1;}
 		.right-box{
-			width: 90px;
+			width: 40%;text-align: right;
 		}
 	}
 	

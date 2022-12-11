@@ -49,13 +49,14 @@
 				}
 			}
 		},
-		created() {
+		async created() {
 			let meminfos = this.$vcache.vget('meminfo')
 			if(meminfos && meminfos.m_phone){
 				uni.switchTab({
 					url:"../index/index"
 				})
 			}
+			
 		},
 		methods: {
 			userneedkonw(){
@@ -70,6 +71,7 @@
 			},
 			async submitBtn(){
 				let sendData = this.formData
+				//sendData.pwd = md5(sendData.pwd)
 				let that = this
 				if(sendData.mphone == '' || sendData.mphone == undefined){
 					uni.showToast({
@@ -98,6 +100,7 @@
 					 if(loginback.data.loginId){
 						this.$vcache.vset("logincode",loginback.data.loginId)
 					 }
+					this.$vcache.vset("formdata",this.formData)
 					this.$vcache.vset("meminfo",loginback.data)
 					uni.showToast({title:"登陆成功...",icon:"success"})
 					setTimeout(function(){

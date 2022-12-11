@@ -43,7 +43,8 @@ const commonFunc = {
 			return false
 		}
 	},
-	tokenCheck:async()=>{
+	tokenCheck:async(flag = false)=>{
+		/*flag == true 强制刷新token*/
 		let gettoken = await vcache.vget("token")
 		let meminfo = await vcache.vget("meminfo")
 		if(!meminfo){
@@ -58,7 +59,8 @@ const commonFunc = {
 			},1000)
 			return ;
 		}
-		 if(null == gettoken || undefined ==gettoken){
+		
+		 if(flag || null == gettoken || undefined ==gettoken){
 			 console.log("token过期")
 			 let gettokenfundata = await commonFunc.setToken(Vue.prototype.$adpid,Vue.prototype.$secrect,meminfo.m_phone)		
 			 return gettokenfundata
@@ -70,7 +72,6 @@ const commonFunc = {
 		let memurl = "/user/info"
 		let sendPhone = {mphone:getmeminfo.m_phone}
 		let meminfo = await request.post(memurl,sendPhone)
-		
 		if(meminfo.code == 0) {
 			await vcache.vset("meminfo",meminfo.data)
 		}else{
@@ -79,6 +80,21 @@ const commonFunc = {
 				icon:"erorr"
 			})
 		}
+	},
+	quietloginfunc:async(beforedata)=>{
+		await commonFunc.tokenCheck(true)
+		console.log("asdfasdf")
+		let url = '/login'
+		let formdata =  await vcache.vget("formdata")
+		let loginback =	await request.post(url,formdata)
+		if(loginback.code ==0){
+			 /*获得用户信息*/
+			 if(loginback.data.loginId){
+				await vcache.vset("logincode",loginback.data.loginId)
+			 }
+			return  request.post(beforedata.url,beforedata.data) 
+		}
+		return true
 	}
 }
 export default commonFunc

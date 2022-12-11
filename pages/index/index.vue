@@ -258,6 +258,7 @@
 				let urls = '/union/join'
 				let bsckjson = await this.$request.post(urls)
 				if(bsckjson.code == 0){
+					this.meminfo.unio_sta = 1
 					uni.showToast({
 						title:"加盟成功",
 						icon:"success"

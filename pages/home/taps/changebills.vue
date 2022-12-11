@@ -2,8 +2,6 @@
 	<view class="wrap-box padding15 bgcommon"
 	:style='{"minHeight": `${pageInfo.height-24}px`}'
 	>
-		
-		
 		<view class="list-wrap">
 			<view v-for="(item,index) in dataList " :key="index" class="list-item-wrap bghalfwhite">
 				<view class="item-left">

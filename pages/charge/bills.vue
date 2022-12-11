@@ -94,7 +94,7 @@
 				margin-bottom: 5px;
 				.item-left{flex:1; }
 				.item-right{
-					width: 86px; text-align:center; padding-top: 6px;
+					width: 40%; text-align:right; padding-top: 6px;
 					
 				}
 			}

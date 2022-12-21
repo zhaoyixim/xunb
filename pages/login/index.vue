@@ -70,10 +70,9 @@
 				})
 			},
 			async submitBtn(){
+
 				let sendData = this.formData
-				
 				//sendData.pwd = md5(sendData.pwd)
-				
 				let that = this
 				if(sendData.mphone == '' || sendData.mphone == undefined){
 					uni.showToast({

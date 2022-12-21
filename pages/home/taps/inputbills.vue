@@ -18,7 +18,11 @@
 					</view>
 					<view class="middle-item-box colorb3b3b3 font16">
 						<view class="middel-top-item item-flex">{{item.usdt}}</view>
-						<view class="middel-top-item item-flex">{{item.statxt}} </view>
+						
+						
+						<view v-if="item.statxt=='已转入'" class="middel-top-item item-flex fc-green">{{item.statxt}} </view>
+						<view v-else-if="item.statxt=='充值失败'" class="middel-top-item item-flex fc-red">{{item.statxt}} </view>
+						<view v-else  class="middel-top-item item-flex">{{item.statxt}} </view>
 						<view class="middel-top-item middelwidthfixed ctime-item font14">{{item.c_time}}</view>
 					</view>
 					
@@ -103,5 +107,12 @@
 	}
 	.middelwidthfixed{width: 120px; text-align: center;}
 	.ctime-item{padding-top: 4px;}
+}
+
+.fc-green{
+	color: lawngreen;
+}
+.fc-red{
+	color: red;
 }
 </style>

@@ -9,10 +9,10 @@
 					<image  class="image-box" :src="item.gds_pic"></image>
 				</view>
 				<view class="box-footer font18">
-					<view class="left-box font16">
-						<view class="text-box">售价:{{item.kob}}kob</view>
+					<view class="left-box font14">
+						<view class="text-box">售价:{{item.kob}}KOB</view>
 					</view>
-					<view class="right-box"><image  class="image-box" :src="labelIconPath"></image> </view>
+					<!-- <view class="right-box"><image  class="image-box" :src="labelIconPath"></image> </view> -->
 				</view>
 			</view>
 			

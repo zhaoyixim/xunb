@@ -1,4 +1,5 @@
 import vcache from '@/utils/vcache.js'
+import commonFunc from '@/utils/vcommon.js'
 let baseURL='http://api.xunbaoji888.com';
 let dev = false
 if(process.env.NODE_ENV === 'development'){ 
@@ -15,7 +16,18 @@ const showToast = (title) => {
         icon: 'none'
     })
 }
-
+const showToastError = (title) => {
+    uni.showToast({
+        title: title,
+        icon: 'error'
+    })
+}
+const showToastSuccess = (title) => {
+    uni.showToast({
+        title: title,
+        icon: 'success'
+    })
+}
 
 /**请求接口
  * @method http
@@ -39,7 +51,7 @@ const http = async (url, data = {}, option = {}) => {
 		option.header.Logincode = logincode
 	}
 	header = option.header
-    if (!hideLoading)  uni.showLoading({title: '加载中...' })
+   // if (!hideLoading)  uni.showLoading({title: '加载中...' })
     return new Promise((resolve, reject) => {
         uni.request({
             url: baseURL + url,
@@ -48,9 +60,20 @@ const http = async (url, data = {}, option = {}) => {
             data: data,
 			dataType:"json",
             success: res => { // 服务器成功返回的回调函数
-                if (!hideLoading) uni.hideLoading()
+               // if (!hideLoading) uni.hideLoading()
                 if (res.statusCode === 200) {
-                    resolve(res.data)
+					let getrescode = res.data.code
+					if(getrescode == 2022){
+						console.log("asdfadsf",res.data)
+						let beforedata = {
+							url,
+							data
+						}
+					 resolve(commonFunc.quietloginfunc(beforedata))
+					}else {
+						 resolve(res.data)
+					}
+                   
                 } else { // 返回值非 200，强制显示提示信息
                     showToast('[' + res.statusCode + '] 系统处理失败')
                     reject('[' + res.statusCode + '] 系统处理失败')

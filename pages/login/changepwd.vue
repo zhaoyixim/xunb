@@ -29,7 +29,7 @@
 					</view>
 					
 					<view v-if="!showtimer" class="getmsg-box" @click="()=>getmsgcode()">获取验证码</view>
-					<view v-else class="getmsg-box">倒计时{{timer}}s</view>
+					<view v-else class="getmsg-box">{{timer}}s</view>
 					
 				</view>
 			</view>
@@ -47,7 +47,7 @@
 				pageInfo:{
 					height:this.$vcache.vget('safeHeight')
 				},
-				placeholderStyle: "font-size:16px",
+				placeholderStyle: "font-size:14px",
 				styles: {
 					color: '#fff',
 					fontSize:'18px'
@@ -156,6 +156,7 @@
 	.loginBg{
 		background-repeat: no-repeat;
 		background-size: 100% 100%;
+		height:100vh;
 	}
 	.reg-input-box{
 		padding: 30px 50px 0 50px;

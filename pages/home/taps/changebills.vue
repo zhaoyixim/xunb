@@ -2,16 +2,14 @@
 	<view class="wrap-box padding15 bgcommon"
 	:style='{"minHeight": `${pageInfo.height-24}px`}'
 	>
-		
-		
 		<view class="list-wrap">
 			<view v-for="(item,index) in dataList " :key="index" class="list-item-wrap bghalfwhite">
 				<view class="item-left">
-					<view class="bills-litter-title coloryellow font20 marbtn10">{{item.dec}}</view>
-					<view class="ctime-wrap colorb3b3b3 font18">{{item.create_time}}</view>
+					<view class="bills-litter-title coloryellow font15 marbtn10">{{item.dec}}</view>
+					<view class="ctime-wrap colorb3b3b3 font14">{{item.create_time}}</view>
 				</view>
 				<view class="item-right colorwhite font20">
-					<view class="marbtn10">{{item.score_val}}晶块</view>
+					<view class="marbtn10 font15">{{item.score_val}}晶块</view>
 					<view v-if="false" class="marbtn10 font16"> 消耗个晶块</view>
 					<view v-if="false" class="font20 btnsure"> 成功 </view>
 				</view>

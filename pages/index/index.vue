@@ -12,7 +12,7 @@
 				</swiper>
 			</view>
 			<view class="bulletin font12" v-if="noticetxt">
-					<uni-notice-bar color="#000" background-color="rgba(255,255,255,0.5)" single :text="noticetxt" />
+					<uni-notice-bar color="#000" background-color="rgba(255,255,255,0.5)" scrollable="true" single :text="noticetxt" @click="()=>handelnotice()"/>
 			</view>	
 		</view>
 		<scroll-view class="zf-idx-container" 
@@ -186,6 +186,7 @@
 				let url = "/docs/notice"
 				let returnjson = await this.$request.post(url)
 				if(returnjson.code == 0){
+					console.log(returnjson.data)
 					this.noticetxt ="公告:"+returnjson.data[0].d_title
 				}
 			},
@@ -248,6 +249,12 @@
 					// #endif
 				}
 			},
+			handelnotice(){
+				console.log('sss');
+				uni.navigateTo({
+					url:'/pages/home/msglist'
+				})
+			},
 			handleclosewin(){
 				 this.$refs.popupunion.close()	
 			},
@@ -258,6 +265,7 @@
 				let urls = '/union/join'
 				let bsckjson = await this.$request.post(urls)
 				if(bsckjson.code == 0){
+					this.meminfo.unio_sta = 1
 					uni.showToast({
 						title:"加盟成功",
 						icon:"success"

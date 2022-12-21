@@ -70,7 +70,8 @@
 		},
 		filters:{
 			substringtotime(substrings){
-				return substrings.substring(0,11)
+				//return substrings.substring(0,11)
+				return substrings
 			}
 		},
 		created() {
@@ -99,13 +100,17 @@
 			},
 			async getlistdata(){
 				//默认是今天的
+				console.log("sss")
 				let url = '/user/getActive'
 				let sendPhone = {mphone:this.meminfo.mphone,dt:this.dtytpe}
 				sendPhone = {...sendPhone,...this.pageDiv}
 				let activedata = await this.$request.post(url,sendPhone)
 				if(activedata.code == 0){
-					this.listdatastore.push(...activedata.data)
+					//this.listdatastore.push(...activedata.data)
+					this.listdatastore=activedata.data
+					
 				}else{
+					this.listdatastore=null
 					uni.showToast({
 						title:activedata.msg,
 						icon:"error"
@@ -113,6 +118,7 @@
 				}
 			},
 			handletapclick(tapindex){
+				
 				this.taplist.forEach(it=>it.checked = false)
 				let item = this.taplist[tapindex]
 				this.dtytpe = this.dtytpe==1?0:1

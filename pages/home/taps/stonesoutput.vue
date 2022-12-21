@@ -2,7 +2,7 @@
 	<view class="wrap-box padding15 bgcommon"
 	:style='{"minHeight": `${pageInfo.height-24}px`}'
 	>
-		<view class="tap-box-wrap font26 colorwhite">
+		<view class="tap-box-wrap font24 colorwhite">
 			<view v-for="(item,indexs) in taplist" :key="indexs" class="item-wrap"  @click="()=>tapclick(indexs)">
 				<view :class='{"item-box":true,"item-box-active":item.checked}'>{{item.labelname}}</view>
 			</view>
@@ -97,7 +97,8 @@
 				url: './outputbills'
 			})
 		},
-		created() {
+		async created() {
+			await this.$commonFunc.tokenCheck(true)
 			this.getnewuseinfo()
 			this.getnettyps()
 			this.getbianaddress()

@@ -6,16 +6,19 @@
 		
 		<view class="list-wrap">
 			<view v-for="(item,index) in dataList " :key="index" class="list-item-wrap bghalfwhite">
-				<view class="item-top-box  font18">
+				<view class="item-top-box  font15">
 					<view class="coloryellow">提现{{item.c_type}} ({{item.nettype}})</view>
 					<view class="txtfixed colorwhite">-{{item.amount}}{{item.c_type}} </view>
 				</view>
 				<view class="item-middel-box">
-					<view class="text-box-wrap coloryellow font18">提现地址:<view class="font16 colorwhite text-content">{{item.outaddr}}</view> </view>
+					<view class="text-box-wrap coloryellow font15">提现地址:<view class="font16 colorwhite text-content">{{item.outaddr}}</view> </view>
 				</view>
 				<view class="item-bottom-box colorb3b3b3">
-					<view class="font16">{{item.c_time}}</view>
-					<view class="font16"> {{item.statxt}} </view>
+					<view class="font14">{{item.c_time}}</view>
+					
+					<view v-if="item.statxt=='已转出'" class="font16  colorgreen"> {{item.statxt}} </view>
+					<view v-else-if="item.statxt=='提出失败'" class="font16  colorred"> {{item.statxt}} </view>
+					<view v-else class="font16"> {{item.statxt}} </view>
 				</view>
 			
 			</view>

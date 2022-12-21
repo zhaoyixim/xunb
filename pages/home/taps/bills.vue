@@ -2,7 +2,7 @@
 	<view class="wrap-box padding15 bgcommon"
 	:style='{"minHeight": `${pageInfo.height-24}px`}'
 	>
-		<view class="teams-content-box colorwhite font20">
+		<view class="teams-content-box colorwhite font18">
 			<view class="content-box-wrap">
 				<view v-for="(it,idx) in taplist" :key="it.labelId" :class= '{"content-item":true,"item-active":it.checked}' 
 				@click="()=>handletapclick(idx)">{{it.labelname}}</view>
@@ -11,17 +11,16 @@
 		<view class="list-wrap">
 			<view v-for="(item,index) in msglist" :key="index" class="list-item-wrap bghalfwhite">
 				<view class="item-left">
-					<view class="bills-litter-title coloryellow font18">{{item.dec}}</view>
+					<view class="bills-litter-title coloryellow font15">{{item.dec}}</view>
 					<view class="ctime-wrap colorb3b3b3 font14">{{item.create_time}}</view>
 				</view>
 				<view class="item-right">
-					<view class="font18 colorwhite right-item-top">{{item.score_val}}
+					<view class="font15 colorwhite right-item-top">{{item.score_val}}
 					{{listindex == 0 ?'晶块':(listindex ==1?"KOB":"USDT")}}
 					</view>
 					<view class="colorb3b3b3 font14">{{listindex == 0 ?'晶块':'余额'}}:{{item.balance}}</view>
 				</view>
 			</view>
-			
 		</view>
 	</view>
 </template>
@@ -112,7 +111,8 @@
 				justify-content: center;  align-items: center;
 				text-align: center; padding: 10px 0;
 				.content-item{flex: 1; padding: 5px 0;}
-				.item-active{border-bottom: 3px #fff solid;}
+				.item-active{color:#54a9f7;
+					border-bottom: 3px #54a9f7 solid;}
 			}
 		}
 		.list-wrap{
@@ -124,7 +124,7 @@
 				.bills-litter-title{margin-bottom: 10px; }
 				.item-left{flex:1}
 				.item-right{
-					width: 86px; text-align:center;
+					width: 35%; text-align:center;
 					
 				}
 			}

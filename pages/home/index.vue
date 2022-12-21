@@ -72,7 +72,7 @@
 				border:false,
 				barList: [
 					{labelId:5,labelName:"流水明细",used:true,tohref:"./taps/bills"},
-					{labelId:4,labelName:"系统公告",used:true,tohref:"./sysmsg"},
+					{labelId:4,labelName:"系统公告",used:true,tohref:"./msglist"},
 					{labelId:8,labelName:"在线客服",used:true,tohref:"../index/chat"},
 					{labelId:1,labelName:"关于我们",used:true,tohref:"./aboutus"},
 					{labelId:7,labelName:"账户管理",used:true,tohref:"./accountmanage"},

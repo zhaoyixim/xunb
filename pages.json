@@ -36,7 +36,7 @@
 					"bounce": "vertical",
 					"titleNView":{
 						"backgroundColor":"#353535",
-						"titleText":"寻宝记",
+						"titleText":"忘记密码",
 						"titleSize":"18px",
 						"titleColor":"#FFF",
 						"autoBackButton":true
@@ -84,7 +84,7 @@
 					"bounce": "vertical",
 					"titleNView":{
 						"backgroundColor":"#353535",
-						"titleText":"寻宝记",
+						"titleText":"立即注册",
 						"titleSize":"18px",
 						"titleColor":"#FFF",
 						"autoBackButton":true
@@ -190,7 +190,7 @@
 					"bounce": "vertical",
 					"titleNView":{
 						"backgroundColor":"#353535",
-						"titleText":"关于晶块转出的规则",
+						"titleText":"公告",
 						"titleColor":"#FFF",
 						"titleSize":"18px",
 						"autoBackButton":true
@@ -449,7 +449,24 @@
 				}
 			}
 		}
-],
+    ,{
+            "path" : "pages/home/msglist",
+            "style": {
+            	"navigationBarTitleText": "寻宝记",
+            	"app-plus": {
+            		"bounce": "vertical",
+            		"titleNView":{
+            			"backgroundColor":"#353535",
+            			"titleText":"消息列表",
+            			"titleColor":"#FFF",
+            			"titleSize":"18px",
+            			"autoBackButton":true
+            		}
+            	}
+            }
+            
+        }
+    ],
 	"globalStyle": {
 		"pageOrientation": "portrait",
 		"navigationBarTitleText": "寻宝记",

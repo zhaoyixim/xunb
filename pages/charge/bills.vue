@@ -7,11 +7,11 @@
 		<view class="list-wrap">
 			<view v-for="(item,index) in dataList " :key="index" class="list-item-wrap bghalfwhite">
 				<view class="item-left">
-					<view class="bills-litter-title coloryellow font22 marbtn10">购买{{item.usdt}}USDT</view>
-					<view class="ctime-wrap colorb3b3b3 font20">{{item.c_time}}</view>
+					<view class="bills-litter-title coloryellow font16 marbtn10">购买{{item.usdt}}USDT</view>
+					<view class="ctime-wrap colorb3b3b3 font14">{{item.c_time}}</view>
 				</view>
 				<view class="item-right colorwhite font20">
-					<view class="marbtn10 font18">-{{item.kob}}KOB</view>
+					<view class="marbtn10 font16">-{{item.kob}}KOB</view>
 				</view>
 			</view>
 		</view>
@@ -94,7 +94,7 @@
 				margin-bottom: 5px;
 				.item-left{flex:1; }
 				.item-right{
-					width: 86px; text-align:center; padding-top: 6px;
+					width: 40%; text-align:right; padding-top: 6px;
 					
 				}
 			}
